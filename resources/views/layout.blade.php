@@ -19,7 +19,7 @@
     }
   </style>
 </head>
-<body class="h-100">
+<body class="d-flex flex-column" style="min-height: 100vh;">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -27,13 +27,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="/">Bazar</a>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
+          <a class="nav-link" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="/stats">Stats</a>
         </li>
         <li class="nav-item">
           <a class="nav-link">Disabled</a>
@@ -51,11 +51,11 @@
       @else
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="btn btn-success me-1" href="/add">Add</a>
+            <a class="btn btn-success me-1" href="/profile">Profile</a>
           </li>
           <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <input class="button is-light" type="submit" value="logout">
+            <input class="btn btn-light" type="submit" value="logout">
           </form>
       @endguest
     </div>
@@ -66,7 +66,9 @@
     </form>
   </div>
 </nav>
+<div class="container-fluid flex-grow-1 bg-secondary">
 
   @yield('content')
+</div>
 </body>
 </html>
