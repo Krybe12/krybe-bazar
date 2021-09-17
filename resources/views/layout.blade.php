@@ -39,7 +39,27 @@
           <a class="nav-link">Disabled</a>
         </li>
       </ul>
+      @guest
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="btn btn-light me-1" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success me-1" href="{{route('register')}}">Register</a>
+          </li>
+        </ul>
+      @else
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="btn btn-success me-1" href="/add">Add</a>
+          </li>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <input class="button is-light" type="submit" value="logout">
+          </form>
+      @endguest
     </div>
+
     <form class="d-flex sb" style="">
       <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
