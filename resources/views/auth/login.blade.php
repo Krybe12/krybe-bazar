@@ -8,11 +8,11 @@
           @csrf
           <div class="mb-3">
             <label  class="form-label">Username</label>
-            <input type="text" name="name" class="form-control" placeholder="" autocomplete="off">
+            <input type="text" name="name" class="form-control" placeholder="" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label  class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="">
+            <input type="password" name="password" class="form-control" placeholder="" required>
           </div>
           <div class="mb-1">
             <input type="submit" class="form-control btn btn-primary" value="Login">
