@@ -36,7 +36,7 @@
           <a class="nav-link" href="/stats">Stats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Disabled</a>
+          <a class="nav-link" href="/addlisting">Create Listing</a>
         </li>
       </ul>
       @guest
