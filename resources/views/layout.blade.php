@@ -30,13 +30,13 @@
     <div class="collapse navbar-collapse" id="navbarToggle">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/home">Home</a>
+          <a class="nav-link {{ request()->is('home') || request()->is('/') ? 'active' : ''}}" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/stats">Stats</a>
+          <a class="nav-link {{ request()->is('stats') ? 'active' : ''}}" href="/stats">Stats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/addlisting">Create Listing</a>
+          <a class="nav-link {{ request()->is('addlisting') ? 'active' : ''}}" href="/addlisting">Create Listing</a>
         </li>
       </ul>
       @guest
