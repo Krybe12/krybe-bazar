@@ -2,7 +2,12 @@
 @section('title') Login @endsection
 
 @section('content')
-    <div class="d-flex justify-content-center py-5">
+<div class="d-flex flex-column align-items-center justify-content-center py-5">
+    @isset($_GET["msg"])
+    <div class="alert alert-warning" role="alert">
+      {{ $_GET["msg"] }}
+    </div>
+    @endisset
       <div class="bg-light rounded-3">
         <form action="" method="POST" class="p-4">
           @csrf

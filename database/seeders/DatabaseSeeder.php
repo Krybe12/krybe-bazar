@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
    */
   public function run()
   {
-    $arr = ["Factory New", "Minimal Wear", "Field-Testes", "Well-Worn", "Scrap"];
+    $arr = ["Factory New", "Minimal Wear", "Field-Tested", "Well-Worn", "Scrap"];
     foreach ($arr as $i) {
       $state = new State;
       $state->name = $i;
