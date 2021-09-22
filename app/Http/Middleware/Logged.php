@@ -17,7 +17,8 @@ class Logged
      */
     public function handle(Request $request, Closure $next)
     {
-        if(! Auth::user()){
+        dd($request);
+        if(! Auth::check()){
             session()->flash('msg', 'kokot');
            return redirect('login');
         }

@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/addlisting', [ListingController::class, 'add'])->middleware('logged');
+Route::get('/addlisting', [ListingController::class, 'add'])->middleware('auth');

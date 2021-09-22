@@ -12,7 +12,22 @@
       </div>
       <div class="mb-2">
         <label  class="form-label">Description</label>
-        <textarea type="text" name="description" class="form-control" placeholder="" rows="5" cols="50" required></textarea>
+        <textarea type="text" name="description" class="form-control" placeholder="" rows="4" cols="45" required></textarea>
+      </div>
+      <div class="mb-2">
+        <label  class="form-label">Price</label>
+        <div class="row">
+          <div class="col pe-0">
+            <input type="number" class="form-control" name="price" min="0" max="999999999"> 
+          </div>
+          <div class="col-auto ps-0">
+            <select name="" class="form-select" id="">
+              @foreach ($currencies as $currency)
+                <option value= {{$currency->id}} > {{$currency->name}} </option>
+              @endforeach
+            </select>
+          </div>
+        </div>
       </div>
       <div class="mb-3">
         <label  class="form-label">State</label>
