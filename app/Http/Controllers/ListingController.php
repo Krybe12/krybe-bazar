@@ -10,8 +10,9 @@ use App\Models\State;
 class ListingController extends Controller
 {
   public function add(){   
-    return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all()]);  
-
+    return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all()]);
+  }
+  public function saveData(){
     
   }
 }
