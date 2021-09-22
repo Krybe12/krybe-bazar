@@ -12,7 +12,7 @@ class ListingController extends Controller
   public function add(){   
     return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all()]);
   }
-  public function saveData(){
-    
+  public function saveData(Request $request){
+    dd($request->all());
   }
 }

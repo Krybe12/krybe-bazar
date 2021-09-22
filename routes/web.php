@@ -20,3 +20,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/addlisting', [ListingController::class, 'add'])->middleware('auth');
+Route::post('/addlisting', [ListingController::class, 'saveData'])->middleware('auth');
