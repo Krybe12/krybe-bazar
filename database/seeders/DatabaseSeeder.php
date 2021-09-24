@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\Currency;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
@@ -23,9 +24,14 @@ class DatabaseSeeder extends Seeder
       $state->name = $i;
       $state->save();
     }
+
     $krybe = new User;
     $krybe->name = "Krybe";
     $krybe->password = '$2y$10$wDnIBGXOFvpKPVhozu3PueXxxLP28ZuIqQGZEvgf1jscdQHVqPWLm';
+    $krybe->save();
+
+    $krybe = new Admin;
+    $krybe->user_id = 1;
     $krybe->save();
 
     $arr = ["CZK", "Dollar", "Euro"];
@@ -35,10 +41,5 @@ class DatabaseSeeder extends Seeder
       $currency->save();
     }
     // \App\Models\User::factory(10)->create();
-    /*         DB::table('states')->insert(['name' => "Nový"]);
-        DB::table('states')->insert(['name' => "Lehce opotřebený"]);
-        DB::table('states')->insert(['name' => "Opotřebný"]);
-        DB::table('states')->insert(['name' => "Velmi opotřebený"]);
-        DB::table('states')->insert(['name' => "Na součástky"]); */
   }
 }

@@ -14,7 +14,6 @@ class ListingController extends Controller
   }
   public function saveData(Request $request){
     if ($request->hasFile('mainimg') && $request->file('mainimg')->isValid()) {
-      dd($request->all());
       $validated = $request->validate([
         'header' => 'string|max:40|min:4',
         'description' => 'string|max:500',
