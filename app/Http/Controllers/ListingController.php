@@ -13,6 +13,17 @@ class ListingController extends Controller
     return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all()]);
   }
   public function saveData(Request $request){
-    dd($request->all());
+    if ($request->hasFile('mainimg') && $request->file('mainimg')->isValid()) {
+      dd($request->all());
+      $validated = $request->validate([
+        'header' => 'string|max:40|min:4',
+        'description' => 'string|max:500',
+        'price' => 'integer|min:0|max:100000000',
+        'state' => 'integer|min:0',
+        'mainimg' => 'mimes:jpeg,png,jpg|max:1024',
+        'otherimg' => 'mimes:jpeg,png,jpg|max:1024',
+      ]);
+      dd($validated);
+    };
   }
 }
