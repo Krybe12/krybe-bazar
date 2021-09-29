@@ -18,6 +18,7 @@ class CreateFilesTable extends Migration
             $table->unsignedBigInteger('offer_id');
             $table->string('name', 40);
             $table->string('url', 80);
+            $table->string('alt', 40);
             $table->timestamps();
 
             $table->foreign('offer_id')->references('id')->on('offers');

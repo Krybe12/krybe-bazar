@@ -32,7 +32,7 @@
                 <input type="number" class="form-control" name="price" min="0"> 
               </div>
               <div class="col-auto ps-1">
-                <select name="" class="form-select" id="">
+                <select name="currency" class="form-select" id="">
                   @foreach ($currencies as $currency)
                     <option value= {{$currency->id}} > {{$currency->name}} </option>
                   @endforeach
