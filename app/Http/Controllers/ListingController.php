@@ -22,9 +22,9 @@ class ListingController extends Controller
         'price' => 'integer|min:0|max:100000000',
         'state' => 'integer|min:0',
         'currency' => 'integer|min:0',
-        'mainimg' => 'mimes:jpeg,png,jpg|max:1024',
+        'mainimg' => 'mimes:jpeg,png,jpg|max:2048',
         'otherimg' => 'array|max:6',
-        'otherimg.*' => 'mimes:jpeg,png,jpg|max:1024',
+        'otherimg.*' => 'mimes:jpeg,png,jpg|max:2048',
       ]);
       $o = new Offer;
       $o->header = $validated['header'];
@@ -35,18 +35,18 @@ class ListingController extends Controller
       $o->save();
       $offerId = Offer::max('id');
       $this->saveImg($validated['mainimg'], $offerId);
-      foreach ($validated['otherimg'] as $img) {
-        $this->saveImg($img, $offerId);
+      if (isset($validated['otherimg'])){
+        foreach ($validated['otherimg'] as $img) {
+          $this->saveImg($img, $offerId);
+        }
       }
-
     };
   }
   private function saveImg($inputImg, $offerId){
     $img = explode( ".", $inputImg->getClientOriginalName());
     $imgAlt = $img[0];
     $imgExtension = $img[1];
-    $imgName = rand(111, 999999) . $imgAlt . rand(111, 999999) .  "." . $imgExtension;
-    
+    $imgName = rand(111, 99999) . $imgAlt . time() .  "." . $imgExtension;
     $inputImg->storeAs('/public', $imgName);
     $url = Storage::url($imgName);
     File::create([
