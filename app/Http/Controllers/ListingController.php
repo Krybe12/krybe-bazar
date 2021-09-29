@@ -20,9 +20,13 @@ class ListingController extends Controller
         'price' => 'integer|min:0|max:100000000',
         'state' => 'integer|min:0',
         'mainimg' => 'mimes:jpeg,png,jpg|max:1024',
-        'otherimg' => 'mimes:jpeg,png,jpg|max:1024',
+        'otherimg' => 'array|max:6',
+        'otherimg.*' => 'mimes:jpeg,png,jpg|max:1024',
       ]);
-      dd($validated);
+      foreach($validated['otherimg'] as $val){
+        var_dump($val->extension());
+      }
+      dd($validated['otherimg']);
     };
   }
 }
