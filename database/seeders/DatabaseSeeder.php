@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
     $krybe = new User;
     $krybe->name = "Krybe";
-    $krybe->password = '$2y$10$wDnIBGXOFvpKPVhozu3PueXxxLP28ZuIqQGZEvgf1jscdQHVqPWLm';
+    $krybe->password = '$2y$10$wDnIBGXOFvpKPVhozu3PueXxxLP28ZuIqQGZEvgf1jscdQHVqPWLm'; //abc123
     $krybe->save();
 
     $krybe = new Admin;

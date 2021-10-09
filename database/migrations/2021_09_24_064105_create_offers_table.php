@@ -18,13 +18,15 @@ class CreateOffersTable extends Migration
             $table->string('header');
             $table->string('description', 500);
             $table->bigInteger('price')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('state_id');
-            //$table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('currency_id');
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('state_id')->references('id')->on('states');
-            //$table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('currency_id')->references('id')->on('currencies');
         });
     }
