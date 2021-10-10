@@ -16,9 +16,9 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('offer_id');
-            $table->string('name', 40);
-            $table->string('url', 80);
-            $table->string('alt', 40);
+            $table->string('name');
+            $table->string('url');
+            $table->string('alt');
             $table->timestamps();
 
             $table->foreign('offer_id')->references('id')->on('offers');

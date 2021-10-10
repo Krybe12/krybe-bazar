@@ -8,6 +8,7 @@ use App\Models\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\State;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -22,6 +23,7 @@ class ListingController extends Controller
         'price' => 'integer|min:0|max:100000000',
         'state' => 'integer|min:0',
         'currency' => 'integer|min:0',
+        'category' => 'integer|min:0',
         'mainimg' => 'mimes:jpeg,png,jpg|max:2048',
         'otherimg' => 'array|max:6',
         'otherimg.*' => 'mimes:jpeg,png,jpg|max:2048',
@@ -32,6 +34,8 @@ class ListingController extends Controller
       $o->price = $validated['price'];
       $o->state_id = $validated['state'];
       $o->currency_id = $validated['currency'];
+      //$o->category_id = $validated['category'];
+      $o->user_id = Auth::user()->id;
       $o->save();
       $offerId = Offer::max('id');
       $this->saveImg($validated['mainimg'], $offerId);
