@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title') Register @endsection
+@section('title') Add Listing @endsection
 
 @section('content')
 <div class="d-flex justify-content-center py-5">
