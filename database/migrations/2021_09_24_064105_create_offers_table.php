@@ -15,7 +15,7 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->string('header');
+            $table->string('header', 40);
             $table->string('description', 500);
             $table->bigInteger('price')->unsigned();
             $table->unsignedBigInteger('user_id');
