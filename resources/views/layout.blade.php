@@ -6,9 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   @if (app()->environment('production'))
     <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('icons/bootstrap-icons.css') }}">
     <script src="{{ secure_asset('css/bootstrap.min.js') }}"></script>
   @else
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}">
     <script src="{{ asset('css/bootstrap.min.js') }}"></script>
   @endif
   <title>Bazar | @yield('title')</title>
@@ -17,8 +19,8 @@
       position: absolute;
       margin-left: auto;
       margin-right: auto;
-      left: 25vw;
-      right: 23vw;
+      left: 24vw;
+      right: 24vw;
       text-align: center;
       max-width: 350px;
     }

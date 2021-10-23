@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Currency;
+use App\Models\Category;
 use App\Models\Offer;
 use App\Models\File;
+use App\Models\State;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use App\Models\State;
 use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
   public function add(){
-    return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all()]);
+    return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all()]);
   }
   public function saveData(Request $request){
     if ($request->hasFile('mainimg') && $request->file('mainimg')->isValid()) {
@@ -34,9 +35,10 @@ class ListingController extends Controller
       $o->price = $validated['price'];
       $o->state_id = $validated['state'];
       $o->currency_id = $validated['currency'];
-      //$o->category_id = $validated['category'];
+      $o->category_id = $validated['category'];
       $o->user_id = Auth::user()->id;
       $o->save();
+
       $offerId = Offer::max('id');
       $this->saveImg($validated['mainimg'], $offerId);
       if (isset($validated['otherimg'])){

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Currency extends Model
 {
-    public $timestamps = false;
-    use HasFactory;
+  public $timestamps = false;
+  use HasFactory;
 }
