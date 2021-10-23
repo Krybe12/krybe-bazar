@@ -12,7 +12,7 @@
       <a  href="">
         <div class="d-flex ms-md-3 p-1 rounded-3 flex-column flex-md-row ct align-items-center">
           <i class="bi bi-{{ $category->icon }}"></i>
-          <p class="ps-1 my-2"> {{ $category->name }}</p>
+          <p class="ps-1 my-1"> {{ $category->name }}</p>
         </div>
         </a>
       @endforeach
