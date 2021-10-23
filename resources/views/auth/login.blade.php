@@ -8,6 +8,9 @@
       {{ session('msg') }}
     </div>
     @endif
+      <div>
+        <h1 class="pb-4">Login</h1>
+      </div>
       <div class="bg-light rounded-3">
         <form action="" method="POST" class="p-4 pb-2">
           @csrf
