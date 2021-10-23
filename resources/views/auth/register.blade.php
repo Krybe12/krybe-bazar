@@ -2,16 +2,16 @@
 @section('title') Register @endsection
 
 @section('content')
-    <div class="d-flex flex-column align-items-center justify-content-center py-5">
+    <div class="d-flex flex-column align-items-center justify-content-center py-4">
       <div>
-        <h1 class="pb-4">Register</h1>
+        <h1 class="pb-4"><b>Register</b></h1>
       </div>
       <div class="bg-light rounded-3">
         <form action="" method="POST" class="p-4 pb-2">
           @csrf
           <div class="mb-3">
             <label  class="form-label">Username</label>
-            <input type="text" name="name" class="form-control" placeholder="John Doe" autocomplete="off" required>
+            <input type="text" name="user_name" class="form-control" placeholder="John Doe" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label  class="form-label">Password</label>

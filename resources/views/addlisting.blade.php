@@ -2,7 +2,10 @@
 @section('title') Add Listing @endsection
 
 @section('content')
-<div class="d-flex justify-content-center py-5">
+<div class="d-flex flex-column align-items-center justify-content-center py-4">
+  <div>
+    <h1 class="pb-4"><b>Add listing</b></h1>
+  </div>
   <div class="bg-light rounded-3">
     <form action="" method="POST" enctype="multipart/form-data" class="p-4">
       @csrf

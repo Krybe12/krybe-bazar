@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
-  public function add(){   
+  public function add(){
     return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all()]);
   }
   public function saveData(Request $request){
