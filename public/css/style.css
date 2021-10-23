@@ -16,6 +16,9 @@ a {
 a:hover {
   color: red;
 }
-.ct:hover {
+.ct:hover{
   background-color: lightgray;
+}
+div.ct:hover a {
+  color: red;
 }
