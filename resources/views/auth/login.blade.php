@@ -9,7 +9,7 @@
     </div>
     @endif
       <div class="bg-light rounded-3">
-        <form action="" method="POST" class="p-4">
+        <form action="" method="POST" class="p-4 pb-2">
           @csrf
           <div class="mb-3">
             <label  class="form-label">Username</label>
@@ -21,6 +21,9 @@
           </div>
           <div class="mb-1">
             <input type="submit" class="form-control btn btn-primary" value="Login">
+          </div>
+          <div class="mb-1">
+            <p>don't have account yet ? <a href="/register">register now!</a></p>
           </div>
         </form>
         @if ($errors->any())

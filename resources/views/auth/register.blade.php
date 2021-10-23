@@ -4,7 +4,7 @@
 @section('content')
     <div class="d-flex justify-content-center py-5">
       <div class="bg-light rounded-3">
-        <form action="" method="POST" class="p-4">
+        <form action="" method="POST" class="p-4 pb-2">
           @csrf
           <div class="mb-3">
             <label  class="form-label">Username</label>
@@ -20,6 +20,9 @@
           </div>
           <div class="mb-1">
             <input type="submit" class="form-control btn btn-primary" value="Register">
+          </div>
+          <div class="mb-1">
+            <p>already have an account ? <a href="/register">log in!</a></p>
           </div>
         </form>
         @if ($errors->any())
