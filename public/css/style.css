@@ -1,0 +1,21 @@
+.sb{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 24vw;
+  right: 24vw;
+  text-align: center;
+  max-width: 350px;
+}
+a:link {
+  text-decoration: none;
+}
+a {
+  color: black;
+}
+a:hover {
+  color: red;
+}
+.ct:hover {
+  background-color: lightgray;
+}

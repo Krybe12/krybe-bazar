@@ -7,24 +7,15 @@
   @if (app()->environment('production'))
     <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     <script src="{{ secure_asset('css/bootstrap.min.js') }}"></script>
   @else
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('css/bootstrap.min.js') }}"></script>
   @endif
   <title>Bazar | @yield('title')</title>
-  <style>
-    .sb{
-      position: absolute;
-      margin-left: auto;
-      margin-right: auto;
-      left: 24vw;
-      right: 24vw;
-      text-align: center;
-      max-width: 350px;
-    }
-  </style>
 </head>
 <body class="d-flex flex-column" style="min-height: 100vh;">
 
@@ -75,7 +66,7 @@
     </form>
   </div>
 </nav>
-<div class="container-fluid flex-grow-1 bg-secondary">
+<div class="container-fluid flex-grow-1 bg-light">
   @yield('content')
 </div>
 </body>

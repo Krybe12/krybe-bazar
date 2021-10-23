@@ -42,19 +42,30 @@ class DatabaseSeeder extends Seeder
       $currency->save();
     }
 
-    $arr = [
-      ["Computers", ],
-      ["Phones", ], 
-      ["Cars & Moto", ], 
-      ["Clothes", ], 
-      ["Household Supplies", ], 
-      ["Major and Small Appliances", ], 
-      ["Other", ]
-    ]; //seeding categories
-    foreach ($arr as $i) {
+    $arr = [ 
+      "Computers" => [
+        "icon" => "laptop"
+      ],
+      "Phones" => [
+        "icon" => "phone"
+      ],
+      "Cars & Moto" => [
+        "icon" => "truck"
+      ],
+      "Household Supplies" => [
+        "icon" => "house-door"
+      ],
+      "Appliances" => [
+        "icon" => "plug"
+      ],
+      "Other" => [
+        "icon" => "question-square"
+      ] //seeding categories
+    ];
+    foreach (array_keys($arr) as $i) {
       $category = new Category;
-      $category->name = $i[0];
-      $category->icon = $i[1];
+      $category->name = $i;
+      $category->icon = $arr[$i]["icon"];
       $category->save();
     }
     // \App\Models\User::factory(10)->create();
