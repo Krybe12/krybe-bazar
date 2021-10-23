@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-  <script src="{{ asset('css/bootstrap.min.js') }}"></script>
+  @if (app()->environment('production'))
+    <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
+    <script src="{{ secure_asset('css/bootstrap.min.js') }}"></script>
+  @else
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <script src="{{ asset('css/bootstrap.min.js') }}"></script>
+  @endif
   <title>Bazar | @yield('title')</title>
   <style>
     .sb{
