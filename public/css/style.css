@@ -13,12 +13,11 @@ a:link {
 a {
   color: black;
 }
-a:hover {
+div.ct:hover p{
   color: red;
 }
 .ct:hover{
   background-color: lightgray;
 }
-div.ct:hover a {
-  color: red;
-}
+
+
