@@ -24,7 +24,7 @@
           <div class="mb-1">
             <input type="submit" class="form-control btn btn-primary" value="Register">
           </div>
-          <div class="mb-1">
+          <div class="mb-1 text-center">
             <p>Already have an account ? <a href="/register">log in!</a></p>
           </div>
         </form>
