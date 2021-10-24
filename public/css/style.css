@@ -16,6 +16,9 @@ a {
 div.ct:hover p{
   color: red;
 }
+.ct{
+  max-width: 250px;
+}
 .ct:hover{
   background-color: lightgray;
 }
