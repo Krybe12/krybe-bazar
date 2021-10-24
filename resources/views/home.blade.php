@@ -9,7 +9,7 @@
     </div>
     <div class="d-flex flex-row flex-md-column p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
       @foreach ($categories as $category)
-      <a  href="">
+      <a  href="/category/{{ $category->name }}">
         <div class="d-flex ms-md-3 p-1 rounded-3 flex-column flex-md-row ct align-items-center">
           <i class="bi bi-{{ $category->icon }}"></i>
           <p class="ps-1 my-1"> {{ $category->name }}</p>
