@@ -14,4 +14,7 @@ class HomeController extends Controller
   public function index(){
     return view('home', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all()]);
   }
+  public function category($catName){
+    dd(Category::where('name', $catName)->first()->id);
+  }
 }
