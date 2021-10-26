@@ -12,7 +12,7 @@ use App\Models\State;
 class HomeController extends Controller
 {
   public function index(){
-    return view('home', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all()]);
+    return view('home', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all(), 'offers' => Offer::paginate(2)]);
   }
   public function category($catName){
     dd(Category::where('name', $catName)->first()->id);

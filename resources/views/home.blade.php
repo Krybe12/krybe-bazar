@@ -25,8 +25,10 @@
       </div>
       <div class="col">
         
-
-
+        @foreach ($offers as $offer)
+            {{var_dump($offer->id);}}
+        @endforeach
+        {{ $offers->links() }}
         <div class="bg-white rounded-3 border border-2 shadow" style="max-width: 900px;">
           <div class="row">
             <div class="col-auto">
@@ -34,13 +36,13 @@
             </div>
             <div class="col d-flex">
               <div class="d-flex justify-content-start flex-column py-2 text-wrap">
-                <div class="col text-wrap"> {{-- header --}}
+                <div class="col"> {{-- header --}}
                   aaaaaaa aaaaaaa aaaaaa aaaaaaa aaaaa aaa {{-- 40 --}}
                 </div>
-                <div class="col d-none d-md-block text-wrap"> {{-- description --}}
+                <div class="col d-none d-md-block"> {{-- description --}}
                   aaaa aaaa aaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaa aaaaaaa aaaaaa aaaa aaaa aaa {{-- 80 --}}
                 </div>
-                <div class="col text-wrap"> {{-- price --}}
+                <div class="col"> {{-- price --}}
                   9999999999 {{-- 10 --}}
                 </div>
               </div>
