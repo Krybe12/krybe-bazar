@@ -4,54 +4,62 @@
 @section('content')
 <div class="d-flex flex-column flex-md-row pt-4 px-0 px-md-2 px-lg-4">
   <div class="col-auto bg-white rounded-3 shadow">
-    <div class="d-flex justify-content-md-start justify-content-center ps-0 ps-md-2 align-items-center">
+    <div class="d-flex justify-content-md-start justify-content-center ps-1 ps-md-3 pt-2 pb-0 align-items-center">
       <h2>Categories</h2>
     </div>
     <div class="d-flex flex-row flex-md-column p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
+      
       @foreach ($categories as $category)
-      <a  href="/category/{{ $category->name }}">
-        <div class="d-flex ms-md-0 p-1 rounded-3 flex-column flex-md-row ct align-items-center">
-          <i class="bi bi-{{ $category->icon }}"></i>
-          <p class="ps-1 my-1"> {{ $category->name }}</p>
-        </div>
+        <a  href="/category/{{ $category->name }}">
+          <div class="d-flex ms-md-0 p-1 rounded-3 flex-column flex-md-row ct align-items-center">
+            <i class="bi bi-{{ $category->icon }}"></i>
+            <p class="ps-1 my-1"> {{ $category->name }}</p>
+          </div>
         </a>
       @endforeach
+
     </div>
   </div>
   <div class="col">
     <div class="flex-column ps-0 ps-md-3 ps-lg-5">
-      <div class="col d-flex justify-content-start align-items-center">
-        <h2>Home</h2>
+      <div class="col">
+        <div class="row d-flex align-items-center">
+          <div class="col d-flex justify-content-start">
+            <h2>Home</h2>
+          </div>
+          <div class="col d-flex justify-content-end">
+            {{ $offers->links() }}
+          </div>
+        </div>
       </div>
       <div class="col">
         
         @foreach ($offers as $offer)
-            {{var_dump($offer->id);}}
-        @endforeach
-        {{ $offers->links() }}
-        <div class="bg-white rounded-3 border border-2 shadow" style="max-width: 900px;">
-          <div class="row">
-            <div class="col-auto">
-              <img class="rounded-start" src="https://dummyimage.com/600x600/000/fff" alt="" style="max-width: 200px; max-height: 160px;" height="180">
-            </div>
-            <div class="col d-flex">
-              <div class="d-flex justify-content-start flex-column py-2 text-wrap">
-                <div class="col"> {{-- header --}}
-                  aaaaaaa aaaaaaa aaaaaa aaaaaaa aaaaa aaa {{-- 40 --}}
+          <a href="">
+            <div class="bg-white rounded-3 border border-2 shadow mb-2" style="max-width: 900px;">
+              <div class="row">
+                <div class="col-auto">
+                  <img class="rounded-start" src="{{ $offer->images[0]->url}}" alt="" style="max-width: 200px; max-height: 160px;" height="180">
                 </div>
-                <div class="col d-none d-md-block"> {{-- description --}}
-                  aaaa aaaa aaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaa aaaaaaa aaaaaa aaaa aaaa aaa {{-- 80 --}}
-                </div>
-                <div class="col"> {{-- price --}}
-                  9999999999 {{-- 10 --}}
+                <div class="col d-flex">
+                  <div class="d-flex justify-content-start flex-column py-2 text-wrap">
+                    <div class="col"> {{-- header --}}
+                      <h5>{{ $offer->header }}</h5> {{-- 40 --}}
+                    </div>
+                    <div class="col d-none d-md-block"> {{-- description --}}
+                      aaaa aaaa aaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaa aaaaaaa aaaaaa aaaa aaaa aaa {{-- 80 --}}
+                    </div>
+                    <div class="col"> {{-- price --}}
+                      9999999999 {{-- 10 --}}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-       
+          </a>
+        @endforeach
 
-
+      
 
       </div>
     </div>
