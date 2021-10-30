@@ -48,7 +48,7 @@
 
     async function fetch_data(page){
       let url = `${window.location.href.split('.com')[0] + '.com'}/offers/?page=${page}`
-      console.log(url);
+      url = url.replace('http', 'https')
       await fetch(url)
         .then(response => response.text())
         .then(data => document.getElementById('ofrs').innerHTML = data)
