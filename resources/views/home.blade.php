@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="d-flex flex-column flex-md-row pt-4 px-0 px-md-2 px-lg-4">
-  <div class="col-auto bg-white rounded-3 shadow">
+  <div class="col-auto bg-white rounded-3 shadow" style="max-height: 350px;">
     <div class="d-flex justify-content-md-start justify-content-center ps-1 ps-md-3 pt-2 pb-0 align-items-center">
       <h2>Categories</h2>
     </div>
@@ -39,7 +39,7 @@
             <div class="bg-white rounded-3 border border-2 shadow mb-2 ofr">
               <div class="row">
                 <div class="col-auto">
-                  <img class="rounded-start" src="{{ $offer->images[0]->url}}" alt="" style="max-width: 200px; max-height: 160px;" height="180">
+                  <img class="rounded-start" src="{{ $offer->images[0]->url}}" alt="asd" style="width: 190px; height: 160px;" height="180">
                 </div>
                 <div class="col d-flex">
                   <div class="d-flex justify-content-start flex-column py-2 text-wrap">
@@ -65,7 +65,4 @@
     </div>
   </div>
 </div>
-<script>
-  fetch('/login').then(response => response.text()).then(data => console.log(data))
-</script>
 @endsection
