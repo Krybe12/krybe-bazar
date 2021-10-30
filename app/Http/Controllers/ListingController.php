@@ -17,7 +17,6 @@ class ListingController extends Controller
     return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all()]);
   }
   public function saveData(Request $request){
-    if ($request->hasFile('mainimg') && $request->file('mainimg')->isValid()) {
       $validated = $request->validate([
         'header' => 'string|max:40|min:4',
         'description' => 'string|max:500',
@@ -26,7 +25,7 @@ class ListingController extends Controller
         'currency' => 'integer|min:0',
         'category' => 'integer|min:0',
         'mainimg' => 'mimes:jpeg,png,jpg|max:2048',
-        'otherimg' => 'array|max:6',
+        'otherimg' => 'array|max:3',
         'otherimg.*' => 'mimes:jpeg,png,jpg|max:2048',
       ]);
       $o = new Offer;
@@ -40,13 +39,22 @@ class ListingController extends Controller
       $o->save();
 
       $offerId = Offer::max('id');
-      $this->saveImg($validated['mainimg'], $offerId);
+      if (isset($validated['mainimg'])){
+        $this->saveImg($validated['mainimg'], $offerId);
+      } else {
+        File::create([
+          'name' => "no image",
+          'url' => "https://dummyimage.com/200x200/ffffff/000000&text=No+image",
+          'alt' => "no image",
+          'offer_id' => $offerId,
+        ]);
+      }
+      
       if (isset($validated['otherimg'])){
         foreach ($validated['otherimg'] as $img) {
           $this->saveImg($img, $offerId);
         }
       }
-    };
   }
   private function saveImg($inputImg, $offerId){
     $img = explode( ".", $inputImg->getClientOriginalName());
