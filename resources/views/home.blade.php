@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="col">
-    <div class="flex-column ps-0 ps-md-3 ps-lg-5">
+    <div class="flex-column ps-0 ps-md-3 ps-lg-5 ofr pt-3">
       <div class="col">
         <div class="row d-flex align-items-center">
           <div class="col d-flex justify-content-start">
@@ -36,7 +36,7 @@
         
         @foreach ($offers as $offer)
           <a href="">
-            <div class="bg-white rounded-3 border border-2 shadow mb-2" style="max-width: 900px;">
+            <div class="bg-white rounded-3 border border-2 shadow mb-2 ofr">
               <div class="row">
                 <div class="col-auto">
                   <img class="rounded-start" src="{{ $offer->images[0]->url}}" alt="" style="max-width: 200px; max-height: 160px;" height="180">
@@ -47,10 +47,10 @@
                       <h5>{{ $offer->header }}</h5> {{-- 40 --}}
                     </div>
                     <div class="col d-none d-md-block"> {{-- description --}}
-                      aaaa aaaa aaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaa aaaaaaa aaaaaa aaaa aaaa aaa {{-- 80 --}}
+                      {{ $offer->description }} {{-- 80 --}}
                     </div>
                     <div class="col"> {{-- price --}}
-                      9999999999 {{-- 10 --}}
+                      {{ $offer->price }} {{-- 10 --}}
                     </div>
                   </div>
                 </div>
@@ -65,4 +65,7 @@
     </div>
   </div>
 </div>
+<script>
+  fetch('/login').then(response => response.text()).then(data => console.log(data))
+</script>
 @endsection
