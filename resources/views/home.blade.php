@@ -47,7 +47,7 @@
     //fetch_data(page);
 
     async function fetch_data(page){
-      await fetch(`/offers/?page=${page}`)
+      await fetch(`${window.location.href.split('.com')[0] + '.com'}/offers/?page=${page}`)
         .then(response => response.text())
         .then(data => document.getElementById('ofrs').innerHTML = data)
       addEventListeners()
