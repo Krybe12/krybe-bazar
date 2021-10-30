@@ -65,34 +65,4 @@
     </div>
   </div>
 </div>
-<<<<<<< HEAD
-  <script>
-    async function addEventListeners(){
-      let x = [...document.querySelectorAll('.pagination a')];
-      x.forEach( x => x.addEventListener("click", function(event){
-        event.preventDefault();
-        let page = this.href.split('page=')[1];
-        fetch_data(page);
-      }));
-    }
-    addEventListeners()
-/*     var url_string = window.location.href;
-    var url = new URL(url_string);
-    var page = url.searchParams.get("page") || 1; */
-    //fetch_data(page);
-
-    async function fetch_data(page){
-      let url = `${window.location.href.split('.com')[0] + '.com'}/offers/?page=${page}`
-      url = url.replace('http', 'https')
-      await fetch(url)
-        .then(response => response.text())
-        .then(data => document.getElementById('ofrs').innerHTML = data)
-      addEventListeners()
-    }
-    </script>
-=======
-{{--   @auth
-  <h2>{{ Auth::user()->admin ? "ano" : "ne"}}</h2>      
-  @endauth --}}
->>>>>>> parent of 4d1bd3c (ajax)
 @endsection
