@@ -14,4 +14,19 @@ class OfferController extends Controller
 
     return view('assets.offers', ['offers' => $offers]);
   }
+
+/*   function index()
+  {
+   $data = Offer::paginate(5);
+   return view('pagination', ['offers' => $data]);
+  } */
+
+  function fetch_data(Request $request)
+  {
+ 
+   //if($request->ajax()) {
+    $data = Offer::paginate(5);
+    return view('assets.offers', ['offers' => $data]);
+   }
+  //}
 }

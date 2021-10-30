@@ -22,5 +22,8 @@ div.ct:hover p{
 .ct:hover{
   background-color: lightgray;
 }
+.ofr{
+  max-width: 900px;
+}
 
 
