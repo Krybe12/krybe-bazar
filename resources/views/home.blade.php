@@ -50,8 +50,7 @@
                       {{ $offer->description }} {{-- 80 --}}
                     </div>
                     <div class="col"> {{-- price --}}
-                      {{ $offer->price }} {{-- 10 --}}
-                      
+                      {{ $offer->price }} {{-- 10 --}}      
                     </div>
                   </div>
                 </div>
