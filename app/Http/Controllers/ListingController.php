@@ -59,7 +59,14 @@ class ListingController extends Controller
   private function saveImg($inputImg, $offerId){
     $img = explode( ".", $inputImg->getClientOriginalName());
     $imgAlt = $img[0];
-    $imgExtension = $img[1];
+    $path = $inputImg->store('images', 's3');
+    $image = File::create([
+      'name' => basename($path),
+      'url' => Storage::disk('s3')->url($path),
+      'alt' => $imgAlt,
+      'offer_id' => $offerId,
+    ]);
+/*     $imgExtension = $img[1];
     $imgName = rand(111, 99999) . $imgAlt . time() .  "." . $imgExtension;
     $inputImg->storeAs('/public', $imgName);
     $url = Storage::url($imgName);
@@ -68,6 +75,6 @@ class ListingController extends Controller
       'url' => $url,
       'alt' => $imgAlt,
       'offer_id' => $offerId,
-    ]);
+    ]); */
   }
 }

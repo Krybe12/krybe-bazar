@@ -39,7 +39,7 @@
             <div class="bg-white rounded-3 border border-2 shadow mb-2 ofr">
               <div class="row">
                 <div class="col-auto">
-                  <img class="rounded-start" src="{{ $offer->images[0]->url}}" alt="asd" style="width: 190px; height: 160px;" height="180">
+                  <img class="rounded-start oimg" src="{{ $offer->images[0]->url }}" alt="{{ $offer->images[0]->alt }}">
                 </div>
                 <div class="col d-flex">
                   <div class="d-flex justify-content-start flex-column py-2 text-wrap">
