@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 
-//Route::get('/offers/{catId?}', [OfferController::class, 'getOffers'])->whereNumber('catId');
+Route::get('/offers/{catId?}', [OfferController::class, 'getOffers'])->whereNumber('catId');
 
 Route::get('/category/{catName}', [HomeController::class, 'category']);
 
