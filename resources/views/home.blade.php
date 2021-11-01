@@ -51,6 +51,7 @@
                     </div>
                     <div class="col"> {{-- price --}}
                       {{ $offer->price }} {{-- 10 --}}
+                      
                     </div>
                   </div>
                 </div>
