@@ -52,7 +52,7 @@ class Offers{
   }
 }
 let page = new Offers()
-page.getData()
+page.getData(1)
 
 </script>
 @endsection
