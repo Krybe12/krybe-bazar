@@ -45,7 +45,7 @@ class Offers{
     })
   }
   async getData(page){
-    await fetch(`/offers/?page=${page}`)
+    await fetch(`/offers?page=${page}`)
       .then(response => response.text())
       .then(data => this.e.innerHTML = data);
     await this.setEventListeners();
