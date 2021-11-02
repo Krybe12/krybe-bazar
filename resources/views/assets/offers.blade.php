@@ -1,7 +1,7 @@
 <div class="col">
   <div class="row d-flex align-items-center">
     <div class="col d-flex justify-content-start">
-      <h2>Home</h2>
+      <h2>{{ $category }}</h2>
     </div>
     <div class="col d-flex justify-content-end">
       {{ $offers->links() }}
