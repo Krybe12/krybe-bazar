@@ -10,8 +10,8 @@
     <div class="d-flex flex-row flex-md-column p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
       
       @foreach ($categories as $category)
-          <div class="d-flex ms-md-0 p-1 rounded-3 flex-column flex-md-row ct">
-            <button type="button" class="btn d-flex w-100 align-items-center">
+          <div class="d-flex ms-md-0 p-0 rounded-3 flex-column flex-md-row ct">
+            <button type="button" data-id="{{ $category->id }}" class="btn d-flex w-100 align-items-center catbtn">
               <i class="bi bi-{{ $category->icon }}"></i>
               <p class="ps-1 my-1"> {{ $category->name }}</p>
             </button>
@@ -46,14 +46,30 @@ class Offers{
     })
   }
   async getData(page){
-    await fetch(`/offers?page=${page}`)
+    await fetch(`/offers?page=${page}&category=${this.category}`)
       .then(response => response.text())
       .then(data => this.e.innerHTML = data);
     await this.setPaginationEventListeners();
   }
+  setCategoryEventListeners(){
+    document.querySelectorAll('.catbtn')
+      .forEach(element => {
+        element.addEventListener('click', (e) => {
+          document.querySelector('.activeb')?.classList.remove('activeb');
+          let btn = e.currentTarget;
+          btn.classList.add("activeb");
+          page.setCategory(btn.dataset.id)
+        })
+      })
+  }
+  setCategory(categoryId){
+    this.category = categoryId;
+    this.getData(this.page);
+  }
 }
-let page = new Offers()
-page.getData(1)
+let page = new Offers();
+page.getData(1);
+page.setCategoryEventListeners();
 
 </script>
 @endsection
