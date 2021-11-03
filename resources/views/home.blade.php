@@ -10,20 +10,19 @@
     <div class="d-flex flex-row flex-md-column p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
       
       @foreach ($categories as $category)
-          <div class="d-flex ms-md-0 p-0 rounded-3 flex-column flex-md-row ct">
-            <button type="button" data-id="{{ $category->id }}" class="btn d-flex w-100 align-items-center catbtn">
-              <i class="bi bi-{{ $category->icon }}"></i>
-              <p class="ps-1 my-1"> {{ $category->name }}</p>
-            </button>
-
-          </div>
+        <div class="d-flex ms-md-0 p-0 rounded-3 flex-column flex-md-row ct">
+          <button type="button" data-id="{{ $category->id }}" class="btn d-flex w-100 align-items-center catbtn">
+            <i class="bi bi-{{ $category->icon }}"></i>
+            <p class="ps-1 my-1"> {{ $category->name }}</p>
+          </button>
+        </div>
       @endforeach
-
     </div>
+
   </div>
   <div class="col">
 
-    <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 ofr pt-3">
+    <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 ofr pt-2">
       
     </div>
 
