@@ -17,6 +17,19 @@
           </button>
         </div>
       @endforeach
+      <div class="w-100"></div>
+        <h3>Price range</h3>
+        <div class="w-100"></div>
+        <div class="row flex-md-column pb-2">
+          <div class="col d-flex justify-content-center align-items-center p-1">
+            <label for="minprice">min: </label>
+            <input type="number" class="form-control" name="minprice" id="" style="max-width: 120px;">
+          </div>
+          <div class="col d-flex justify-content-center align-items-center p-1">
+            <label for="maxprice">max: </label>
+            <input type="number" class="form-control" name="maxprice" id="" style="max-width: 120px;">
+          </div>
+        </div>
     </div>
 
   </div>
@@ -54,10 +67,16 @@ class Offers{
     document.querySelectorAll('.catbtn')
       .forEach(element => {
         element.addEventListener('click', (e) => {
-          document.querySelector('.activeb')?.classList.remove('activeb');
-          let btn = e.currentTarget;
-          btn.classList.add("activeb");
-          page.setCategory(btn.dataset.id)
+          let selectedBtn = document.querySelector('.activeb')
+          let tagetBtn = e.currentTarget;
+          let targetId = btn.dataset.id;
+          selectedBtn?.classList.remove("activeb");
+          if (selectedBtn == tagetBtn){
+            targetId = "";
+          } else {
+             tagetBtn.classList.add("activeb");
+          }
+          page.setCategory(id);
         })
       })
   }
