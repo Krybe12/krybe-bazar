@@ -44,7 +44,7 @@ class ListingController extends Controller
       } else {
         File::create([
           'name' => "no image",
-          'url' => "https://dummyimage.com/200x200/ffffff/000000&text=No+image",
+          'url' => "https://dummyimage.com/185x170/ffffff/000000&text=No+image",
           'alt' => "no image",
           'offer_id' => $offerId,
         ]);

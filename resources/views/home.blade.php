@@ -68,15 +68,15 @@ class Offers{
       .forEach(element => {
         element.addEventListener('click', (e) => {
           let selectedBtn = document.querySelector('.activeb')
-          let tagetBtn = e.currentTarget;
-          let targetId = btn.dataset.id;
+          let targetBtn = e.currentTarget;
+          let targetId = targetBtn.dataset.id;
           selectedBtn?.classList.remove("activeb");
-          if (selectedBtn == tagetBtn){
+          if (selectedBtn == targetBtn){
             targetId = "";
           } else {
-             tagetBtn.classList.add("activeb");
+             targetBtn.classList.add("activeb");
           }
-          page.setCategory(id);
+          page.setCategory(targetId);
         })
       })
   }

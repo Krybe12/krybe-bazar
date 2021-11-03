@@ -23,14 +23,14 @@ div.ct:hover p{
   background-color: lightgray;
 }
 .activeb{
-  background-color: lightgray;
+  background-color: gray;
 }
 .ofr{
   max-width: 900px;
 }
 .oimg{
   width: 185px;
-  height: 160px;
+  height: 170px;
 }
 
 

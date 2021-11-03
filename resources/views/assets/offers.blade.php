@@ -20,9 +20,12 @@
           <div class="col">
             <div class="card-body ps-md-5">
               <h5 class="card-title"> {{ $offer->header }} </h5>
-              <p class="card-text"> {{ $offer->description }} </p>
-              <p class="card-text"> Price: {{ $offer->price }}  {{ $offer->currency->name }} </p>
-              <p class="card-text"><small class="text-muted">Created {{ $offer->created_at }} </small></p>
+              <p class="card-text p-0 pb-2 m-0"> {{ strlen($offer->description) > 160 ? substr($offer->description, strlen($offer->description) - 160) . "..." : $offer->description}} </p>
+              <div class="d-flex justify-content-between p-0 m-0">
+                <p class="card-text p-0 m-0"> Price: {{ $offer->price }}  {{ $offer->currency->name }} </p>
+                <p></p>
+                <p class="card-text p-0 m-0"><small class="text-muted">Created {{ $offer->created_at }} </small></p>
+              </div>
             </div>
           </div>
         </div>
