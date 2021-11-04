@@ -6,6 +6,11 @@
       <div>
         <h1 class="pb-md-5 pb-2"><b>Add information</b></h1>
       </div>
+      @if(session('msg'))
+      <div class="alert alert-warning" role="alert">
+        {{ session('msg') }}
+      </div>
+      @endif
       <div class="border shadow bg-white rounded-3">
         <form action="" method="POST" class="p-4 pb-2">
           @csrf

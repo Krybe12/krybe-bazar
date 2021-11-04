@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Auth;
 class ListingController extends Controller
 {
   public function add(){
+    if (!Auth::user()->has_information){
+      session(['destinationPage' => '/addlisting']);
+      session()->flash('msg', 'You have to add your information in order to do that');
+      return redirect('/addinformation');
+    }
     return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all()]);
   }
   public function saveData(Request $request){

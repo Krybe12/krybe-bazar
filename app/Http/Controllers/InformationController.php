@@ -29,9 +29,6 @@ class InformationController extends Controller
     Auth::user()->email = $validated["_email"];
     Auth::user()->has_information = 1;
     Auth::user()->save();
-/*     $o = new Offer;
-    $o->header = $validated['header'];
-    $o->description = $validated['description'];
-    $o->save(); */
+    return redirect( session('destinationPage') ? session('destinationPage') : "/home");
   }
 }
