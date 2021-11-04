@@ -18,9 +18,10 @@
             <img src="{{ $offer->images[0]->url }}" alt="{{ $offer->images[0]->alt }}" class="img-fluid rounded-start oimg">
           </div>
           <div class="col">
-            <div class="card-body ps-md-5">
+            <div class="card-body h-100 d-flex flex-column justify-content-between ps-md-5">
               <h5 class="card-title"> {{ $offer->header }} </h5>
               <p class="card-text p-0 pb-2 m-0"> {{ strlen($offer->description) > 160 ? substr($offer->description, strlen($offer->description) - 160) . "..." : $offer->description}} </p>
+              <div></div><div></div><div></div>
               <div class="d-flex justify-content-between p-0 m-0">
                 <p class="card-text p-0 m-0"> Price: {{ $offer->price }}  {{ $offer->currency->name }} </p>
                 <p></p>

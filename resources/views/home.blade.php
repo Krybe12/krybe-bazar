@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="d-flex flex-column flex-md-row pt-4 px-0 px-md-2 px-lg-4">
-  <div class="col-auto bg-white rounded-3 shadow">
+  <div class="col-auto bg-white rounded-3 shadow" style="max-height: 400px;">
     <div class="d-flex justify-content-md-start justify-content-center ps-1 ps-md-3 pt-2 pb-0 align-items-center">
       <h2>Categories</h2>
     </div>
@@ -17,19 +17,19 @@
           </button>
         </div>
       @endforeach
+     {{--  <div class="w-100"></div>
+      <h3>Price range</h3>
       <div class="w-100"></div>
-        <h3>Price range</h3>
-        <div class="w-100"></div>
-        <div class="row flex-md-column pb-2">
-          <div class="col d-flex justify-content-center align-items-center p-1">
-            <label for="minprice">min: </label>
-            <input type="number" class="form-control" name="minprice" id="" style="max-width: 120px;">
-          </div>
-          <div class="col d-flex justify-content-center align-items-center p-1">
-            <label for="maxprice">max: </label>
-            <input type="number" class="form-control" name="maxprice" id="" style="max-width: 120px;">
-          </div>
+      <div class="row flex-md-column pb-2">
+        <div class="col d-flex justify-content-center align-items-center p-1">
+          <label for="minprice">min: </label>
+          <input type="number" class="form-control" name="minprice" id="" style="max-width: 120px;">
         </div>
+        <div class="col d-flex justify-content-center align-items-center p-1">
+          <label for="maxprice">max: </label>
+          <input type="number" class="form-control" name="maxprice" id="" style="max-width: 120px;">
+        </div>
+      </div> --}}
     </div>
 
   </div>
