@@ -35,7 +35,7 @@
   </div>
   <div class="col">
 
-    <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 ofr pt-2">
+    <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 pt-2" style="max-width: 900px;">
       
     </div>
 

@@ -19,4 +19,7 @@ class OfferController extends Controller
     }
     return view('assets.offers', ['offers' => $offers], ['category' => $categoryName]);
   }
+  public function getOffer(Request $request, $offerTag){
+    return view('offer', ["offer" => Offer::where('id', explode("-", $offerTag)[0])->first()]);
+  }
 }

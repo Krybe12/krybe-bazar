@@ -28,6 +28,11 @@ div.ct:hover p{
 .ofr{
   max-width: 900px;
 }
+.ofr:hover{
+  color: black;
+  opacity: .8;
+  background-color: whitesmoke;
+}
 .oimg{
   width: 185px;
   height: 170px;

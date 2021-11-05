@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/offers', [OfferController::class, 'getOffers']);
+Route::get('/offer/{offerTag}', [OfferController::class, 'getOffer']);
 
 Route::get('/category/{catName}', [HomeController::class, 'category']);
 
@@ -30,4 +31,5 @@ Route::post('/addlisting', [ListingController::class, 'saveData'])->middleware('
 
 Route::get('/addinformation', [InformationController::class, 'index'])->middleware('auth');
 Route::post('/addinformation', [InformationController::class, 'saveInformation'])->middleware('auth');
+
 
