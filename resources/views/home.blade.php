@@ -7,10 +7,10 @@
     <div class="d-flex justify-content-md-start justify-content-center ps-1 ps-md-3 pt-2 pb-0 align-items-center">
       <h2>Categories</h2>
     </div>
-    <div class="d-flex flex-row flex-md-column p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
+    <div class="d-flex flex-row flex-md-column mb-2 p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
       
       @foreach ($categories as $category)
-        <div class="d-flex ms-md-0 p-0 rounded-3 flex-column flex-md-row ct">
+        <div class="d-flex ms-md-0 p-0 m-1 rounded-3 flex-column flex-md-row ct">
           <button type="button" data-id="{{ $category->id }}" class="btn d-flex w-100 align-items-center catbtn">
             <i class="bi bi-{{ $category->icon }}"></i>
             <p class="ps-1 my-1"> {{ $category->name }}</p>

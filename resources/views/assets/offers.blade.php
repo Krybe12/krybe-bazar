@@ -12,7 +12,7 @@
   
   @foreach ($offers as $offer)
     <a href="">
-      <div class="card mb-3 ofr rounded-3 border border-2 shadow">
+      <div class="card mb-3 ofr rounded-3 border border-2 shadow text-center text-sm-start">
         <div class="row g-0">
           <div class="col-sm-auto">
             <img src="{{ $offer->images[0]->url }}" alt="{{ $offer->images[0]->alt }}" class="img-fluid rounded-start oimg">
@@ -20,9 +20,9 @@
           <div class="col">
             <div class="card-body h-100 d-flex flex-column justify-content-between ps-md-5">
               <h5 class="card-title"> {{ $offer->header }} </h5>
-              <p class="card-text p-0 pb-2 m-0"> {{ strlen($offer->description) > 160 ? substr($offer->description, strlen($offer->description) - 160) . "..." : $offer->description}} </p>
+              <p class="card-text p-0 pb-2 m-0"> {{ strlen($offer->description) > 150 ? substr($offer->description, strlen($offer->description) - 150) . "..." : $offer->description}} </p>
               <div></div><div></div><div></div>
-              <div class="d-flex justify-content-between p-0 m-0">
+              <div class="d-flex flex-column flex-sm-row justify-content-between p-0 m-0">
                 <p class="card-text p-0 m-0"> Price: {{ $offer->price }}  {{ $offer->currency->name }} </p>
                 <p></p>
                 <p class="card-text p-0 m-0"><small class="text-muted">Created {{ $offer->created_at }} </small></p>
