@@ -38,6 +38,7 @@
           <div class="mb-3">
             <input type="submit" class="form-control btn btn-primary" value="Save information">
           </div>
+          
         </form>
         @if ($errors->any())
         @foreach ($errors->all() as $error)
