@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   @if (app()->environment('production'))
+    <link rel="stylesheet" href="{{ secue_asset('icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     <script src="{{ secure_asset('css/bootstrap.min.js') }}"></script>
   @else
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('css/bootstrap.min.js') }}"></script>
   @endif
