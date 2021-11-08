@@ -97,8 +97,9 @@ class Offers{
 
 }
 let urlParams = new URLSearchParams(window.location.search)
-
-let page = new Offers(urlParams.get('category'));
+let category = urlParams.get('category');
+document.querySelector(`[data-id='${category}']`).classList.add('activeb');
+let page = new Offers(category);
 page.getData(urlParams.get('page'));
 page.setCategoryEventListeners();
 
