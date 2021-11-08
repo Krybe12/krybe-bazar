@@ -2,5 +2,5 @@
 @section('title') {{ $offer->header }} @endsection
 
 @section('content')
- {{dd($offer)}}
+ {{ var_dump($offer) }}
 @endsection

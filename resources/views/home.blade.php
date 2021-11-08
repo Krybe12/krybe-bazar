@@ -44,11 +44,12 @@
 
 <script>
 class Offers{
-  constructor(){
+  constructor(category = ''){
     this.perPage = 5;
-    this.category = "";
-    this.e = document.getElementById("mp")
+    this.category = category;
+    this.element = document.getElementById("mp")
   }
+
   async setPaginationEventListeners(){
     document.querySelectorAll('.pagination a').forEach(el => {
       el.addEventListener("click", (e) => {
@@ -57,12 +58,16 @@ class Offers{
       });
     })
   }
+
   async getData(page){
-    await fetch(`/offers?page=${page}&category=${this.category}`)
+    let url = `/offers?page=${page || 1}&category=${this.category || ""}`;
+    this.setPageUrl(url);
+    await fetch(url)
       .then(response => response.text())
-      .then(data => this.e.innerHTML = data);
+      .then(data => this.element.innerHTML = data);
     await this.setPaginationEventListeners();
   }
+
   setCategoryEventListeners(){
     document.querySelectorAll('.catbtn')
       .forEach(element => {
@@ -80,13 +85,21 @@ class Offers{
         })
       })
   }
+
   setCategory(categoryId){
     this.category = categoryId;
-    this.getData(this.page);
+    this.getData();
   }
+
+  setPageUrl(url){
+    window.history.replaceState('', '', url.replace('offers', ''))
+  }
+
 }
-let page = new Offers();
-page.getData(1);
+let urlParams = new URLSearchParams(window.location.search)
+
+let page = new Offers(urlParams.get('category'));
+page.getData(urlParams.get('page'));
 page.setCategoryEventListeners();
 
 </script>
