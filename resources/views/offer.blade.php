@@ -2,5 +2,5 @@
 @section('title') {{ $offer->header }} @endsection
 
 @section('content')
- {{ var_dump($offer) }}
+<button type="button" value="Go back!" onclick="history.back()">go back</button>
 @endsection
