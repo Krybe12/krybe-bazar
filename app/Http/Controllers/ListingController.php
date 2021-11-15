@@ -30,7 +30,7 @@ class ListingController extends Controller
         'currency' => 'integer|min:0',
         'category' => 'integer|min:0',
         'mainimg' => 'mimes:jpeg,png,jpg|max:2048',
-        'otherimg' => 'array|max:3',
+        'otherimg' => 'array|max:4',
         'otherimg.*' => 'mimes:jpeg,png,jpg|max:2048',
       ]);
       $o = new Offer;
@@ -49,7 +49,7 @@ class ListingController extends Controller
       } else {
         File::create([
           'name' => "no image",
-          'url' => "https://dummyimage.com/185x170/ffffff/000000&text=No+image",
+          'url' => "https://dummyimage.com/500x500/ffffff/000.png&text=No-image",
           'alt' => "no image",
           'offer_id' => $offerId,
         ]);
