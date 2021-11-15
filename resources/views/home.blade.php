@@ -3,10 +3,12 @@
 
 @section('content')
 <div class="d-flex flex-column flex-md-row pt-4 px-0 px-md-2 px-lg-4">
+
   <div class="col-auto bg-white rounded-3 shadow" style="max-height: 400px;">
     <div class="d-flex justify-content-md-start justify-content-center ps-1 ps-md-3 pt-2 pb-0 align-items-center">
       <h2>Categories</h2>
     </div>
+
     <div class="d-flex flex-row flex-md-column mb-2 p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
       
       @foreach ($categories as $category)
@@ -33,8 +35,13 @@
     </div>
 
   </div>
-  <div class="col">
 
+  <div class="col">
+    @if(session('status'))
+    <div class="alert alert-warning" role="alert">
+      {{ session('status') }}
+    </div>
+    @endif
     <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 pt-2" style="max-width: 900px;">
       
     </div>

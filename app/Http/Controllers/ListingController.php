@@ -60,6 +60,7 @@ class ListingController extends Controller
           $this->saveImg($img, $offerId);
         }
       }
+      return redirect('/')->with('status', 'Listing successfully added! :)');
   }
   private function saveImg($inputImg, $offerId){
     $img = explode( ".", $inputImg->getClientOriginalName());
