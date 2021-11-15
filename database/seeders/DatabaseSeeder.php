@@ -35,10 +35,23 @@ class DatabaseSeeder extends Seeder
     $krybe->user_id = 1;
     $krybe->save();
 
-    $arr = ["CZK", "Dollar", "Euro"]; //seeding currecies
-    foreach ($arr as $i) {
+ /*    $arr = ["CZK", "Dollar", "Euro"]; //seeding currecies
+    $sign = ["Kč", "&#36;", "&#128;"]; */
+    $arr = [ 
+      "CZK" => [
+        "code" => "Kč"
+      ],
+      "Euro" => [
+        "code" => "&#128;"
+      ],
+      "Dollar" => [
+        "code" => "&#36;"
+      ] //seeding currencies
+    ];
+    foreach (array_keys($arr) as $i) {
       $currency = new Currency;
       $currency->name = $i;
+      $currency->code = $arr[$i]["code"];
       $currency->save();
     }
 

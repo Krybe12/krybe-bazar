@@ -8,30 +8,34 @@
     </div>
     <div class="col d-flex flex-column flex-md-row border shadow bg-white rounded-3">
 
-      <div class="col-auto flex-column"> {{-- imgdiv --}}
+      <div class="col-auto row flex-md-column"> {{-- imgdiv --}}
         @foreach ($offer->images as $img)
           <div class="col m-1">
-            <img src="{{ $img->url }}" alt="{{ $img->alt }}" class="img-fluid offerimg">
+            <img src="{{ $img->url }}" alt="{{ $img->alt }}" class="img-fluid offerimg rounded-1 border border-2 shadow">
           </div>
         @endforeach
       </div>
       <div class="col">
-        <img id="selectedImg" src="{{$offer->images[1]->url}}" alt="" style="object-fit: contain; width: 450px; height: 430px">
+        <img id="selectedImg" src="{{$offer->images[0]->url}}" alt="" style="object-fit: contain; width: 450px; height: 430px">
       </div>
 
-      <div class="col">
-        
+      <div class="col d-flex flex-column m-2">
+        <div class="col d-flex align-items-start flex-column">
+          Price<h2 style="color: orange">{{ $offer->price }}<?php echo $offer->currency->code ?></h2> 
+          State<h2 >{{ $offer->state->name }} </h2>
+          Created<h2 >{{ $offer->created_at }} </h2>
+        </div>
       </div>
 
     </div>
   </div>
-
-@if ($errors->any())
-  @foreach ($errors->all() as $error)
-    <p class="text-danger px-2 text-center">
-      <i class="bi bi-exclamation-triangle-fill"></i>
-      {{ $error }} 
-    </p>
-  @endforeach
-@endif
+  <script>
+    let mainImg = document.getElementById('selectedImg');
+    let imgs = document.querySelectorAll('.offerimg');
+    imgs.forEach(img => {
+      img.addEventListener('mouseover', e => {
+        mainImg.src = e.target.src;
+      })
+    });
+  </script>
 @endsection
