@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\File;
 use App\Models\State;
 use App\Models\Currency;
+use App\Models\User;
 
 
 class Offer extends Model
@@ -26,5 +27,9 @@ class Offer extends Model
   public function state()
   {
     return $this->belongsTo(State::class);
+  }
+  public function user()
+  {
+    return $this->belongsTo(User::class);
   }
 }
