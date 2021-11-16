@@ -8,9 +8,9 @@
     </div>
     <div class="col d-flex flex-column flex-md-row border shadow bg-white rounded-3">
 
-      <div class="col-auto row flex-md-column m-0 pt-1"> {{-- imgdiv --}}
+      <div class="col-auto row flex-md-column m-2 pt-1"> {{-- imgdiv --}}
         @foreach ($offer->images as $img)
-          <div class="col-auto m-1">
+          <div class="col-auto m-1 px-0">
             <img src="{{ $img->url }}" alt="{{ $img->alt }}" class="img-fluid offerimg rounded-2 border border-2 shadow">
           </div>
         @endforeach
