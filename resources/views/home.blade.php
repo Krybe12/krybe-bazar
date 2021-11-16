@@ -38,8 +38,9 @@
 
   <div class="col">
     @if(session('status'))
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-success alert-dismissible fade show ofr ms-0 ms-md-3 mt-2 mt-md-0 ms-lg-5" role="alert">
       {{ session('status') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  
     </div>
     @endif
     <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 pt-2" style="max-width: 900px;">

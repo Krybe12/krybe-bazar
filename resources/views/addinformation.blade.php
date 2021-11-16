@@ -7,8 +7,9 @@
         <h1 class="pb-md-5 pb-2"><b>Add information</b></h1>
       </div>
       @if(session('msg'))
-      <div class="alert alert-warning" role="alert">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
         {{ session('msg') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       @endif
       <div class="border shadow bg-white rounded-3">
