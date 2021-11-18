@@ -40,4 +40,8 @@ div.ct:hover p{
 .offerimg{
   width: 75px;
   height: 75px;
+  border-left: 4px solid #ddd !important;
+}
+.selectedimg{
+  border-left: 4px solid orange !important;
 }
