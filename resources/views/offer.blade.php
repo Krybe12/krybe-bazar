@@ -21,11 +21,11 @@
 
       <div class="col d-flex flex-column m-3">
         <div class="col d-flex align-items-start flex-column ps-3">
-          Price<h2 style="color: orange">{{ $offer->price }}<?php echo $offer->currency->code ?></h2> 
-          State<h3 >{{ $offer->state->name }} </h3>
-          Created<h3 >{{ $offer->created_at }} </h3>
+          <label><i class="bi bi-cash-stack"></i> Price</label><h2 style="color: orange">{{ $offer->price }}<?php echo $offer->currency->code ?></h2> 
+          <label><i class="bi bi-recycle"></i> State</label><h3 >{{ $offer->state->name }} </h3>
+          <label><i class="bi bi-calendar2"></i> Created</label><h3 >{{ $offer->created_at }} </h3>
           @if ($offer->created_at != $offer->updated_at)
-            Last update<h3 >{{ $offer->updated_at }} </h3>
+          <label><i class="bi bi-calendar2-plus"></i> Last update</label><h3 >{{ $offer->updated_at }} </h3>
           @endif
         </div>
 {{--         <div class="col d-flex align-items-start flex-column ps-3 border border-3 rounded-3 bg-secondary">
@@ -42,15 +42,14 @@
           <button class="nav-link" id="nav-seller-tab" data-bs-toggle="tab" data-bs-target="#nav-seller" type="button" role="tab" aria-controls="nav-seller" aria-selected="false">Seller information</button>
         </div>
       </nav>
-      <div class="tab-content pt-3 border shadow bg-white rounded-3" id="nav-tabContent" style="width: 40vw; min-width: 330px;">
+      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="width: 40vw; min-width: 330px;">
 
-        <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
-          description:
-            <p> {{ $offer->description }} </p>
+        <div class="tab-pane fade show active m-4" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" style="min-height: 100px">
+          <p> {{ $offer->description }} </p>
         </div>
 
-        <div class="tab-pane fade" id="nav-seller" role="tabpanel" aria-labelledby="nav-profile-tab">
-          seller
+        <div class="tab-pane fade m-4" id="nav-seller" role="tabpanel" aria-labelledby="nav-profile-tab" style="min-height: 100px">
+          <label></label>
         </div>
 
       </div>
