@@ -42,14 +42,26 @@
           <button class="nav-link" id="nav-seller-tab" data-bs-toggle="tab" data-bs-target="#nav-seller" type="button" role="tab" aria-controls="nav-seller" aria-selected="false">Seller information</button>
         </div>
       </nav>
-      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="width: 40vw; min-width: 330px;">
+      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 50vw; width: 52vw; min-width: 330px; max-width: 650px;">
 
         <div class="tab-pane fade show active m-4" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" style="min-height: 100px">
           <p> {{ $offer->description }} </p>
         </div>
 
-        <div class="tab-pane fade m-4" id="nav-seller" role="tabpanel" aria-labelledby="nav-profile-tab" style="min-height: 100px">
-          <label></label>
+        <div class="tab-pane fade m-4" id="nav-seller" role="tabpanel" aria-labelledby="nav-profile-tab" style="min-height: 100px;">
+          <div class="d-flex row">
+            <div class="col">
+              <h4>Kontakt</h4>
+            </div>
+
+            <div class="col-auto flex-column d-flex align-items-start">
+              <p><i class="bi bi-at"></i> email: <a href="mailto:{{ $offer->user->email }}" style="color: blue"> {{ $offer->user->email }} </a></p>
+              @if ($offer->user->phone_number != "null")
+                <p><i class="bi bi-phone"></i> tel: <a href="tel:{{ $offer->user->phone_number }}" style="color: blue"> {{ $offer->user->phone_number }} </a></p>
+              @endif
+          
+            </div>
+          </div>
         </div>
 
       </div>
