@@ -51,10 +51,11 @@
         <div class="tab-pane fade m-4" id="nav-seller" role="tabpanel" aria-labelledby="nav-profile-tab" style="min-height: 100px;">
           <div class="d-flex row">
             <div class="col">
-              <h4>Kontakt</h4>
+              <h4>Contact</h4>
             </div>
 
             <div class="col-auto flex-column d-flex align-items-start">
+              <p><i class="bi bi-person"></i> name: <a href="/profile/{{ $offer->user->id . "-" . $offer->user->user_name }}" style="color: blue"> {{ $offer->user->name }} </a></p>
               <p><i class="bi bi-at"></i> email: <a href="mailto:{{ $offer->user->email }}" style="color: blue"> {{ $offer->user->email }} </a></p>
               @if ($offer->user->phone_number != "null")
                 <p><i class="bi bi-phone"></i> tel: <a href="tel:{{ $offer->user->phone_number }}" style="color: blue"> {{ $offer->user->phone_number }} </a></p>
