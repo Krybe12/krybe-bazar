@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-auto flex-column d-flex align-items-start">
-              <p><i class="bi bi-person"></i> name: <a href="/profile/{{ $offer->user->id . "-" . $offer->user->user_name }}" style="color: blue"> {{ $offer->user->name }} </a></p>
+              <p><i class="bi bi-person"></i> name: <a href="/profile/{{ $offer->user->id . "-" . $offer->user->user_name }}" style="color: blue"> {{ $offer->user->name . ' (' . $offer->user->user_name . ')' }} </a></p>
               <p><i class="bi bi-at"></i> email: <a href="mailto:{{ $offer->user->email }}" style="color: blue"> {{ $offer->user->email }} </a></p>
               @if ($offer->user->phone_number != "null")
                 <p><i class="bi bi-phone"></i> tel: <a href="tel:{{ $offer->user->phone_number }}" style="color: blue"> {{ $offer->user->phone_number }} </a></p>
