@@ -16,7 +16,7 @@
         @endforeach
       </div>
       <div class="col d-flex justify-content-center justify-content-md-start mx-3">
-        <img id="selectedImg" src="{{$offer->images[0]->url}}" alt="" style="object-fit: contain; width: 40vw; height: 58vh; min-width: 330px; min-height: 280px">
+        <img id="selectedImg" src="{{$offer->images[0]->url}}" alt="{{$offer->images[0]->alt}}" style="object-fit: contain; width: 40vw; height: 58vh; min-width: 330px; min-height: 280px">
       </div>
 
       <div class="col d-flex flex-column m-3">
@@ -76,6 +76,7 @@
       img.addEventListener('mouseover', e => {
         document.querySelector('.selectedimg')?.classList.remove('selectedimg');
         mainImg.src = e.target.src;
+        mainImg.alt = e.target.alt;
         e.target.classList.add('selectedimg');
       })
     });
