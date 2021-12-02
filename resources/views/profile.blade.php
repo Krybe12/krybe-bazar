@@ -43,7 +43,41 @@
         </div>
 
         <div class="tab-pane fade m-4" id="nav-statistics" role="tabpanel" aria-labelledby="nav-statistics-tab" style="min-height: 100px">
-          <p> sfsdf </p>
+          <div class="d-flex row">
+            <div class="col">
+              <h4>Offers</h4>
+            </div>
+
+            <div class="col-auto flex-column d-flex align-items-start">
+
+              <p><i class="bi bi-person-fill"></i> username: <b> {{ $user->user_name}} </b></p>
+
+              @if ($user->name != "null")
+                <p><i class="bi bi-person"></i> name: <b> {{ $user->name }} </b></p>            
+              @endif
+
+              @if ($user->email != "null")
+                <p><i class="bi bi-at"></i> email: <a href="mailto:{{ $user->email }}" style="color: blue"> {{ $user->email }} </a></p>
+              @endif
+
+              @if ($user->phone_number != "null")
+                <p><i class="bi bi-phone"></i> tel: <a href="tel:{{ $user->phone_number }}" style="color: blue"> {{ $user->phone_number }} </a></p>
+              @endif
+              <table>
+                <tr>
+                  <td>email: </td>
+                  <td>{{ $user->email }}</td>
+                </tr>
+                <tr>
+                  <td>name: </td>
+                  <td>{{ $user->name }}</td>
+                </tr>
+                <tr>
+                  <td>username: </td>
+                  <td>{{ $user->user_name }}</td>
+                </tr>
+              </table>
+            </div>
         </div>
 
       </div>
