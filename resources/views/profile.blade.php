@@ -10,13 +10,13 @@
     <div class="col d-flex flex-column rounded-3 p-4">
       <nav class="d-flex justify-content-center">
         <div class="nav nav-tabs pb-1" id="nav-tab" role="tablist">
-          <button class="nav-link active" id="nav-information" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information" aria-selected="true">Information</button>
-          <button class="nav-link" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="false">Item description</button>
+          <button class="nav-link active" id="nav-information-tab" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information-tab" aria-selected="true">Information</button>
+          <button class="nav-link" id="nav-statistics-tab" data-bs-toggle="tab" data-bs-target="#nav-statistics" type="button" role="tab" aria-controls="nav-statistics" aria-selected="false">Statistics</button>
         </div>
       </nav>
       <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 50vw; width: 52vw; min-width: 330px; max-width: 650px;">
 
-        <div class="tab-pane fade show active m-4" id="nav-information" role="tabpanel" aria-labelledby="nav-information" style="min-height: 100px;">
+        <div class="tab-pane fade show active m-4" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab" style="min-height: 100px;">
           <div class="d-flex row">
             <div class="col">
               <h4>Contact</h4>
@@ -24,7 +24,7 @@
 
             <div class="col-auto flex-column d-flex align-items-start">
 
-              <p><i class="bi bi-person-fill"></i> username: <b> {{ $user->user_name }} </b></p>
+              <p><i class="bi bi-person-fill"></i> username: <b> {{ $user->user_name}} </b></p>
 
               @if ($user->name != "null")
                 <p><i class="bi bi-person"></i> name: <b> {{ $user->name }} </b></p>            
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="tab-pane fade m-4" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" style="min-height: 100px">
+        <div class="tab-pane fade m-4" id="nav-statistics" role="tabpanel" aria-labelledby="nav-statistics-tab" style="min-height: 100px">
           <p> sfsdf </p>
         </div>
 
