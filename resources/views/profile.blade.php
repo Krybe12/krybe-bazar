@@ -14,7 +14,7 @@
           <button class="nav-link" id="nav-statistics-tab" data-bs-toggle="tab" data-bs-target="#nav-statistics" type="button" role="tab" aria-controls="nav-statistics" aria-selected="false">Statistics</button>
         </div>
       </nav>
-      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 50vw; width: 52vw; min-width: 330px; max-width: 650px;">
+      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 65vw; width: 80vw; min-width: 330px; max-width: 650px;">
 
         <div class="tab-pane fade show active m-4" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab" style="min-height: 100px;">
           <div class="d-flex row">
@@ -24,19 +24,35 @@
 
             <div class="col-auto flex-column d-flex align-items-start">
 
-              <p><i class="bi bi-person-fill"></i> username: <b> {{ $user->user_name}} </b></p>
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="text-nowrap"><i class="bi bi-person-fill"></i> Username: </td>
+                    <td> {{ $user->user_name }}</td>
+                  </tr>
 
-              @if ($user->name != "null")
-                <p><i class="bi bi-person"></i> name: <b> {{ $user->name }} </b></p>            
-              @endif
+                  @if ($user->name != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-person"></i> Name: </td>
+                      <td> {{ $user->name }}</td>
+                    </tr>
+                  @endif
 
-              @if ($user->email != "null")
-                <p><i class="bi bi-at"></i> email: <a href="mailto:{{ $user->email }}" style="color: blue"> {{ $user->email }} </a></p>
-              @endif
+                  @if ($user->email != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-at"></i> Email: </td>
+                      <td> <a href="mailto:{{ $user->email }}" style="color: blue"> {{ $user->email }} </a></td>
+                    </tr>
+                  @endif
 
-              @if ($user->phone_number != "null")
-                <p><i class="bi bi-phone"></i> tel: <a href="tel:{{ $user->phone_number }}" style="color: blue"> {{ $user->phone_number }} </a></p>
-              @endif
+                  @if ($user->phone_number != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-phone"></i> Telephone: </td>
+                      <td> <a href="tel:{{ $user->phone_number }}" style="color: blue"> {{ $user->phone_number }} </a></td>
+                    </tr>
+                  @endif
+                </tbody>
+              </table>
           
             </div>
           </div>
@@ -50,32 +66,34 @@
 
             <div class="col-auto flex-column d-flex align-items-start">
 
-              <p><i class="bi bi-person-fill"></i> username: <b> {{ $user->user_name}} </b></p>
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="text-nowrap"><i class="bi bi-person-fill"></i> username: </td>
+                    <td> {{ $user->user_name }}</td>
+                  </tr>
 
-              @if ($user->name != "null")
-                <p><i class="bi bi-person"></i> name: <b> {{ $user->name }} </b></p>            
-              @endif
+                  @if ($user->name != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-person"></i> name: </td>
+                      <td> {{ $user->name }}</td>
+                    </tr>
+                  @endif
 
-              @if ($user->email != "null")
-                <p><i class="bi bi-at"></i> email: <a href="mailto:{{ $user->email }}" style="color: blue"> {{ $user->email }} </a></p>
-              @endif
+                  @if ($user->email != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-at"></i> email: </td>
+                      <td> <a href="mailto:{{ $user->email }}" style="color: blue"> {{ $user->email }} </a></td>
+                    </tr>
+                  @endif
 
-              @if ($user->phone_number != "null")
-                <p><i class="bi bi-phone"></i> tel: <a href="tel:{{ $user->phone_number }}" style="color: blue"> {{ $user->phone_number }} </a></p>
-              @endif
-              <table>
-                <tr>
-                  <td>email: </td>
-                  <td>{{ $user->email }}</td>
-                </tr>
-                <tr>
-                  <td>name: </td>
-                  <td>{{ $user->name }}</td>
-                </tr>
-                <tr>
-                  <td>username: </td>
-                  <td>{{ $user->user_name }}</td>
-                </tr>
+                  @if ($user->phone_number != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-phone"></i> tel: </td>
+                      <td> <a href="tel:{{ $user->phone_number }}" style="color: blue"> {{ $user->phone_number }} </a></td>
+                    </tr>
+                  @endif
+                </tbody>
               </table>
             </div>
         </div>

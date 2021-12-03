@@ -55,11 +55,28 @@
             </div>
 
             <div class="col-auto flex-column d-flex align-items-start">
-              <p><i class="bi bi-person"></i> name: <a href="/profile/{{ $offer->user->id . "-" . $offer->user->user_name }}" style="color: blue"> {{ $offer->user->name . ' (' . $offer->user->user_name . ')' }} </a></p>
-              <p><i class="bi bi-at"></i> email: <a href="mailto:{{ $offer->user->email }}" style="color: blue"> {{ $offer->user->email }} </a></p>
-              @if ($offer->user->phone_number != "null")
-                <p><i class="bi bi-phone"></i> tel: <a href="tel:{{ $offer->user->phone_number }}" style="color: blue"> {{ $offer->user->phone_number }} </a></p>
-              @endif
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="text-nowrap"><i class="bi bi-person-fill"></i> User: </td>
+                    <td> <a href="/profile/{{ $offer->user->id . "-" . $offer->user->user_name }}" style="color: blue">{{ $offer->user->user_name . ' (' . $offer->user->name . ')' }}</a></td>
+                  </tr>
+
+                  @if ($offer->user->email != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-at"></i> Email: </td>
+                      <td> <a href="mailto:{{ $offer->user->email }}" style="color: blue"> {{ $offer->user->email }} </a></td>
+                    </tr>
+                  @endif
+
+                  @if ($offer->user->phone_number != "null")
+                    <tr>
+                      <td class="text-nowrap"><i class="bi bi-phone"></i> Telephone: </td>
+                      <td> <a href="tel:{{ $offer->user->phone_number }}" style="color: blue"> {{ $offer->user->phone_number }} </a></td>
+                    </tr>
+                  @endif
+                </tbody>
+              </table>
           
             </div>
           </div>
