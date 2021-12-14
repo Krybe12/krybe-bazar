@@ -24,7 +24,7 @@
 
             <div class="col-auto flex-column d-flex align-items-start">
 
-              <table class="table table-borderless">
+              <table class="table table-borderless table-responsive">
                 <tbody>
                   <tr>
                     <td class="text-nowrap"><i class="bi bi-person-fill"></i> Username: </td>
@@ -64,9 +64,13 @@
               <h4>Offers</h4>
             </div>
 
-            <div class="col-auto flex-column d-flex align-items-start">
+            <div class="col row d-flex align-items-start">
 
-              <table class="table table-borderless">
+
+                <div class="col d-flex">
+                  <i class="bi bi-person-fill"></i><p class="ps-1">Username:</p> 
+                </div>
+{{--               <table class="table table-borderless">
                 <tbody>
                   <tr>
                     <td class="text-nowrap"><i class="bi bi-person-fill"></i> username: </td>
@@ -94,7 +98,7 @@
                     </tr>
                   @endif
                 </tbody>
-              </table>
+              </table> --}}
             </div>
         </div>
 
