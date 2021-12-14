@@ -14,7 +14,7 @@
           <button class="nav-link" id="nav-statistics-tab" data-bs-toggle="tab" data-bs-target="#nav-statistics" type="button" role="tab" aria-controls="nav-statistics" aria-selected="false">Statistics</button>
         </div>
       </nav>
-      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 65vw; width: 92vw; min-width: 330px; max-width: 650px;">
+      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 65vw; width: 95vw; min-width: 330px; max-width: 650px;">
 
         <div class="tab-pane fade show active m-4" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab" style="min-height: 100px;">
           <div class="d-flex row">
