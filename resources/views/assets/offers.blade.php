@@ -35,25 +35,3 @@
     @endforeach
     
   </div>
-
-{{-- 
-  <div class="bg-white rounded-3 border border-2 shadow mb-2 ofr">
-    <div class="row justify-content-center">
-      <div class="col-auto">
-        <img class="rounded-start oimg" src="{{ $offer->images[0]->url }}" alt="{{ $offer->images[0]->alt }}">
-      </div>
-      <div class="col d-flex ms-2 ms-md-0">
-        <div class="d-flex justify-content-start flex-column py-2 text-wrap">
-          <div class="col"> 
-            <h5>{{ $offer->header }}</h5>
-          </div>
-          <div class="col d-none d-md-block"> 
-            {{ $offer->description }} 
-          </div>
-          <div class="col"> 
-            {{ $offer->price }}       
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> --}}

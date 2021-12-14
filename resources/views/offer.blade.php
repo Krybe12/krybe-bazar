@@ -42,7 +42,7 @@
           <button class="nav-link" id="nav-seller-tab" data-bs-toggle="tab" data-bs-target="#nav-seller" type="button" role="tab" aria-controls="nav-seller" aria-selected="false">Seller information</button>
         </div>
       </nav>
-      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 50vw; width: 95vw; min-width: 330px; max-width: 650px;">
+      <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 50vw; width: 92vw; min-width: 330px; max-width: 650px;">
 
         <div class="tab-pane fade show active m-4" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" style="min-height: 100px">
           <p> {{ $offer->description }} </p>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-auto flex-column d-flex align-items-start">
-              <table class="table table-borderless">
+              <table class="table table-borderless table-responsive">
                 <tbody>
                   <tr>
                     <td class="text-nowrap"><i class="bi bi-person-fill"></i> User: </td>

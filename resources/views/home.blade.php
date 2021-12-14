@@ -68,11 +68,11 @@ class Offers{
   }
 
   async getData(page){
-    let url = `/offers?page=${page || 1}${this.category ? "&category=" + this.category : ""}`;
-    this.setPageUrl(url);
-    await fetch(url)
-      .then(response => response.text())
-      .then(data => this.element.innerHTML = data);
+  let url = `/offers?page=${page || 1}${this.category ? "&category=" + this.category : ""}`;
+  this.setPageUrl(url);
+  await fetch(url)
+    .then(response => response.text())
+    .then(data => this.element.innerHTML = data);
     await this.setPaginationEventListeners();
   }
 
