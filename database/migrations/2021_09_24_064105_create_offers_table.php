@@ -24,10 +24,10 @@ class CreateOffersTable extends Migration
             $table->unsignedBigInteger('currency_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('state_id')->references('id')->on('states');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('currency_id')->references('id')->on('currencies');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');;
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');;
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');;
         });
     }
 

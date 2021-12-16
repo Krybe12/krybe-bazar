@@ -26,13 +26,16 @@
           <label><i class="bi bi-calendar2"></i> Created</label><h3 >{{ $offer->created_at }} </h3>
           @if ($offer->created_at != $offer->updated_at)
           <label><i class="bi bi-calendar2-plus"></i> Last update</label><h3 >{{ $offer->updated_at }} </h3>
-          @endif
+          @endif          
         </div>
-{{--         <div class="col d-flex align-items-start flex-column ps-3 border border-3 rounded-3 bg-secondary">
-          User<h2>{{ $offer->user->name }}</h2> 
-          Email<h3 >{{ $offer->user->email }} </h3>
-          Phone<h3 >{{ $offer->user->phone_number }} </h3>
-        </div> --}}
+        
+        <div class="col-auto align-items-start ps-3 pe-2 pt-3">
+          <div class="d-flex">
+            <a href="/offer/delete/{{ $offer->id }}" class="btn btn-danger w-100 mx-1">Remove</a>
+            <a href="" class="btn btn-success w-100 mx-1">Edit</a>
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="pt-4">

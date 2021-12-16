@@ -7,9 +7,11 @@ use App\Models\Offer;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
+
   public function getOffers(Request $request)
   {
     $userId = $request->user;
@@ -21,7 +23,18 @@ class OfferController extends Controller
     }
     return view('assets.offers', ['offers' => $offers], ['category' => $categoryName]);
   }
+
   public function getOffer(Request $request, $offerTag){
     return view('offer', ["offer" => Offer::where('id', explode("-", $offerTag)[0])->first()]);
+  }
+
+  public function removeOffer(Request $request, $offerId){
+    $offer = Offer::findOrFail($offerId);
+    if(Auth::user() && Auth::user()->id === $offer->user_id){
+      $offer->delete();
+      return redirect('/')->with('status', 'Listing successfully deleted!');
+    } else {
+      abort(403);
+    }
   }
 }

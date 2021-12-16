@@ -25,6 +25,8 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/offers', [OfferController::class, 'getOffers']);
 Route::get('/offer/{offerTag}', [OfferController::class, 'getOffer']);
 
+Route::get('/offer/delete/{offerId}', [OfferController::class, 'removeOffer']);
+
 Route::get('/category/{catName}', [HomeController::class, 'category']);
 
 Route::get('/profile/{profileId?}', [ProfileController::class, 'index']);
