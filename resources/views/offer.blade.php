@@ -32,29 +32,32 @@
         <div class="col-auto align-items-start ps-3 pe-2 pt-3">
           <div class="d-flex">
 
-            <button type="button" class="btn btn-danger w-100 mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
-              Delete
-            </button>
-            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Are you sure you want to delete this offer?
-                  </div>
-                  <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <a href="/offer/delete/{{ $offer->id }}" class="btn btn-danger">Delete</a>
+            @if (Auth::check() && Auth::id() === $offer->user_id)
+
+              <button type="button" class="btn btn-danger w-100 mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                Delete
+              </button>
+              <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this offer?
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <a href="/offer/{{ $offer->tag }}/delete" class="btn btn-danger">Delete</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {{-- <a href="/offer/delete/{{ $offer->id }}" class="btn btn-danger w-100 mx-1">Remove</a> --}}
-            <a href="" class="btn btn-success w-100 mx-1">Edit</a>
+              <a href="/offer/{{ $offer->tag }}/edit" class="btn btn-success w-100 mx-1">Edit</a>
+            @endif
+
           </div>
         </div>
 
