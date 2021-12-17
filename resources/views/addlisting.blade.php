@@ -13,11 +13,11 @@
         <div class="col-auto">
           <div class="mb-3">
             <label  class="form-label"><i class="bi bi-card-heading"></i> Header</label>
-            <input type="text" name="header" class="form-control" placeholder="" autocomplete="off" required>
+            <input type="text" name="header" class="form-control" placeholder="" maxlength="40" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label  class="form-label"><i class="bi bi-card-text"></i> Description</label>
-            <textarea type="text" name="description" class="form-control" placeholder="" rows="5" cols="40" style="height: 124px;" required></textarea>
+            <textarea type="text" name="description" class="form-control" placeholder="" maxlength="500" rows="5" cols="40" style="height: 124px;" required></textarea>
           </div>
           <div class="mb-3">
             <label  class="form-label"><i class="bi bi-cash-stack"></i> Price</label>
