@@ -42,7 +42,7 @@ class OfferController extends Controller
 
   public function removeOffer($offerTag){
     $offer = $this->findOrFailOffer($this->getIdFromTag($offerTag));
-    if(Auth::user() && Auth::user()->id === $offer->user_id){
+    if(Auth::check() && Auth::id() === $offer->user_id || Auth::check() && Auth::user()->admin){
       $offer->delete();
       return redirect('/')->with('status', 'Listing successfully deleted!');
     } else {

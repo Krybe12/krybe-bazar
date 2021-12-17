@@ -32,7 +32,7 @@
         <div class="col-auto align-items-start ps-3 pe-2 pt-3">
           <div class="d-flex">
 
-            @if (Auth::check() && Auth::id() === $offer->user_id)
+            @if (Auth::check() && Auth::id() === $offer->user_id || Auth::check() && Auth::user()->admin)
 
               <button type="button" class="btn btn-danger w-100 mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
                 Delete
