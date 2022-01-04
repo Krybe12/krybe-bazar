@@ -25,7 +25,7 @@
             <input type="submit" class="form-control btn btn-primary" value="Register">
           </div>
           <div class="mb-1 text-center">
-            <p>Already have an account ? <a class="text-info" href="/register">log in!</a></p>
+            <p>Already have an account ? <a class="text-info" href="/login">log in!</a></p>
           </div>
         </form>
         @if ($errors->any())
