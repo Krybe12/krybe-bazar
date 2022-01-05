@@ -13,17 +13,17 @@
         <div class="col-auto">
           <div class="mb-3">
             <label  class="form-label"><i class="bi bi-card-heading"></i> Header</label>
-            <input type="text" name="header" class="form-control" placeholder="" maxlength="40" autocomplete="off" required>
+            <input type="text" name="header" class="form-control" placeholder="" minlength="4" maxlength="40" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label  class="form-label"><i class="bi bi-card-text"></i> Description</label>
-            <textarea type="text" name="description" class="form-control" placeholder="" maxlength="500" rows="5" cols="40" style="height: 124px;" required></textarea>
+            <textarea type="text" name="description" class="form-control" placeholder="" minlength="3" maxlength="500" rows="5" cols="40" style="height: 124px;" required></textarea>
           </div>
           <div class="mb-3">
             <label  class="form-label"><i class="bi bi-cash-stack"></i> Price</label>
             <div class="row">
               <div class="col pe-0">
-                <input type="number" class="form-control" name="price" min="0" max="9999999"> 
+                <input type="number" class="form-control" name="price" min="1" max="9999999"> 
               </div>
               <div class="col-auto ps-1">
                 <select name="currency" class="form-select" id="">

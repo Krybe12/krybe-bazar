@@ -21,27 +21,36 @@ class ListingController extends Controller
     }
     return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all()]);
   }
+
+  private function validateRequest($request){
+    return $request->validate([
+      'header' => 'string|max:40|min:4',
+      'description' => 'string|max:500',
+      'price' => 'integer|min:0|max:100000000',
+      'state' => 'integer|min:0',
+      'currency' => 'integer|min:0',
+      'category' => 'integer|min:0',
+      'mainimg' => 'mimes:jpeg,png,jpg|max:2048',
+      'otherimg' => 'array|max:4',
+      'otherimg.*' => 'mimes:jpeg,png,jpg|max:2048',
+    ]);
+  }
+
+  private function saveOfferFromValidated($validated, $offer){
+    $offer->header = $validated['header'];
+    $offer->description = $validated['description'];
+    $offer->price = $validated['price'];
+    $offer->state_id = $validated['state'];
+    $offer->currency_id = $validated['currency'];
+    $offer->category_id = $validated['category'];
+    $offer->user_id = Auth::user()->id;
+    $offer->save();
+  }
+
   public function saveData(Request $request){
-      $validated = $request->validate([
-        'header' => 'string|max:40|min:4',
-        'description' => 'string|max:500',
-        'price' => 'integer|min:0|max:100000000',
-        'state' => 'integer|min:0',
-        'currency' => 'integer|min:0',
-        'category' => 'integer|min:0',
-        'mainimg' => 'mimes:jpeg,png,jpg|max:2048',
-        'otherimg' => 'array|max:4',
-        'otherimg.*' => 'mimes:jpeg,png,jpg|max:2048',
-      ]);
-      $o = new Offer;
-      $o->header = $validated['header'];
-      $o->description = $validated['description'];
-      $o->price = $validated['price'];
-      $o->state_id = $validated['state'];
-      $o->currency_id = $validated['currency'];
-      $o->category_id = $validated['category'];
-      $o->user_id = Auth::user()->id;
-      $o->save();
+      $validated = $this->validateRequest($request);
+
+      $this->saveOfferFromValidated($validated, new Offer);
 
       $offerId = Offer::max('id');
       if (isset($validated['mainimg'])){
@@ -62,8 +71,9 @@ class ListingController extends Controller
       }
       return redirect('/')->with('status', 'Listing successfully added! :)');
   }
+
   private function saveImg($inputImg, $offerId){
-    $img = explode( ".", $inputImg->getClientOriginalName());
+    $img = explode(".", $inputImg->getClientOriginalName());
     $imgAlt = $img[0];
     $path = $inputImg->store('images', 's3');
     $image = File::create([
@@ -72,6 +82,7 @@ class ListingController extends Controller
       'alt' => $imgAlt,
       'offer_id' => $offerId,
     ]);
+    
 /*     $imgExtension = $img[1];
     $imgName = rand(111, 99999) . $imgAlt . time() .  "." . $imgExtension;
     $inputImg->storeAs('/public', $imgName);
