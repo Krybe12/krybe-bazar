@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Offer;
 use App\Models\User;
+use App\Models\File;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class OfferController extends Controller
 {
@@ -31,18 +34,22 @@ class OfferController extends Controller
   }
 
   public function getOffer($offerTag){
-    $offer = Offer::where('id', $this->getIdFromTag($offerTag))->first();
+    $offer = Offer::findOrFail($this->getIdFromTag($offerTag));
     $offer->tag = $this->getTagFromOffer($offer);
     return view('offer', ["offer" => $offer]);
   }
 
   public function editOffer($offerTag){
-    $offer = $this->findOrFailOffer($this->getIdFromTag($offerTag));
+    $offer = Offer::findOrFail($this->getIdFromTag($offerTag));
   }
 
   public function removeOffer($offerTag){
     $offer = $this->findOrFailOffer($this->getIdFromTag($offerTag));
     if(Auth::check() && Auth::id() === $offer->user_id || Auth::check() && Auth::user()->admin){
+      $images = $offer->images()->get();
+      foreach($images as $image){
+        Storage::disk('s3')->delete("images/" . $image->name);
+      }
       $offer->delete();
       return redirect('/')->with('status', 'Listing successfully deleted!');
     } else {
@@ -56,10 +63,6 @@ class OfferController extends Controller
   
   private function getTagFromOffer($offer){
     return $offer->id . "-" . str_replace(" ", "-", $offer->header);
-  }
-
-  private function findOrFailOffer($offerId){
-    return Offer::findOrFail($offerId);
   }
 
 }
