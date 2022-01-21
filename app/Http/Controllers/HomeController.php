@@ -12,6 +12,7 @@ class HomeController extends Controller
     return view('home', ['categories' => Category::all(), 'offers' => Offer::paginate(5)]);
   }
   public function category($catName){
+    mail("krystof.sramek@gmail.com","My subject","test");
     dd(Category::where('name', $catName)->first()->id);
   }
 }
