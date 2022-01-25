@@ -49,7 +49,7 @@ class OfferController extends Controller
   }
 
   public function removeOffer($offerTag){
-    $offer = $this->findOrFailOffer($this->getIdFromTag($offerTag));
+    $offer = Offer::findOrFail($this->getIdFromTag($offerTag));
     if(Auth::check() && Auth::id() === $offer->user_id || Auth::check() && Auth::user()->admin){
       $images = $offer->images()->get();
       foreach($images as $image){
