@@ -27,8 +27,6 @@ Route::get('/offer/{offerTag}', [OfferController::class, 'getOffer']);
 Route::get('/offer/{offerTag}/delete', [OfferController::class, 'removeOffer']);
 Route::get('/offer/{offerTag}/edit', [OfferController::class, 'editOffer']);
 
-Route::get('/category/{catName}', [HomeController::class, 'category']);
-
 Route::get('/profile/{profileId?}', [ProfileController::class, 'index']);
 
 Route::get('/addlisting', [ListingController::class, 'add'])->middleware('auth');
