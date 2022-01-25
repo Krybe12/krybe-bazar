@@ -9,6 +9,10 @@
     <div class="col d-flex flex-column flex-md-row border shadow bg-white rounded-3">
 
       <div class="col-auto row flex-md-column m-2 pt-1"> {{-- imgdiv --}}
+        <button class="d-flex btn-sm btn-primary justify-content-center mb-2" onclick="javascript:history.back()">
+          <i class="bi bi-arrow-left">Back</i>
+        </button>
+
         @foreach ($offer->images as $img)
           <div class="col-auto m-1 px-0">
             <img src="{{ $img->url }}" alt="{{ $img->alt }}" class="img-fluid offerimg rounded-2 shadow border border-1">
