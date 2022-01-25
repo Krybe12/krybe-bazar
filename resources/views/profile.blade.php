@@ -17,13 +17,15 @@
       <div class="tab-content border shadow bg-white rounded-3" id="nav-tabContent" style="min-width: 65vw; width: 92vw; min-width: 330px; max-width: 650px;">
 
         <div class="tab-pane fade show active m-4" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab" style="min-height: 100px;">
+          
+          <a class="btn btn-primary" href="/addinformation" > Change/Add your information </a>
+
           <div class="d-flex row">
             <div class="col">
               <h4>Contact</h4>
             </div>
 
             <div class="col-auto flex-column d-flex align-items-start">
-
               <table class="table table-borderless table-responsive">
                 <tbody>
                   <tr>
