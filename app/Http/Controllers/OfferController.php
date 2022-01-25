@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MessageToUser;
 use App\Models\Category;
 use App\Models\Offer;
 use App\Models\User;
 use App\Models\File;
+use Mail;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +38,9 @@ class OfferController extends Controller
   public function getOffer($offerTag){
     $offer = Offer::findOrFail($this->getIdFromTag($offerTag));
     $offer->tag = $this->getTagFromOffer($offer);
+    
+    //Mail::to('krybe120@gmail.cz')->send(new MessageToUser($offer, "kokot"));
+    
     return view('offer', ["offer" => $offer]);
   }
 
