@@ -7,7 +7,7 @@
     <h1 class="pb-md-4 pb-2"><b>Add listing</b></h1>
   </div>
   <div class="border shadow bg-white rounded-3">
-    <form action="" onsubmit="test()" method="POST" enctype="multipart/form-data" class="p-4">
+    <form action="" onsubmit="addLoadingState()" method="POST" enctype="multipart/form-data" class="p-4">
       @csrf
       <div class="row justify-content-center">
         <div class="col-auto">
@@ -66,8 +66,6 @@
         </div>
       </div>
       
-      
-      
       <div class="pt-2">
         <input type="submit" id="sbtn" class="form-control btn btn-primary" value="Add listing">
       </div>
@@ -82,7 +80,7 @@
   @endif
   </div>
   <script>
-    function test(){
+    function addLoadingState(){
       let x = document.getElementById('sbtn')
       x.value = "Loading..."
       x.classList.remove("btn-primary")
