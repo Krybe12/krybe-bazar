@@ -22,6 +22,17 @@ class ListingController extends Controller
     return view('addlisting', ['states' => State::all(), 'currencies' => Currency::all(), 'categories' => Category::all()]);
   }
 
+  public function saveEdit(Request $request, $tag){
+    $validated = $this->validateRequest($request);
+    $offer = Offer::findOrFail($this->getIdFromTag($tag));
+    if (!$this->isAllowed($offer->user_id)){
+      abort(403);
+    }
+    $id = $this->getIdFromTag($tag);
+    $this->saveOfferFromValidated($validated, Offer::findOrFail($id));
+    return redirect('/offer/' . $id . "-" . $validated['header']);
+  }
+
   private function validateRequest($request){
     return $request->validate([
       'header' => 'string|max:40|min:4',
@@ -40,9 +51,9 @@ class ListingController extends Controller
     $offer->header = $validated['header'];
     $offer->description = $validated['description'];
     $offer->price = $validated['price'];
-    $offer->state_id = $validated['state'];
+    $offer->state_id = $validated['state'] ?? $offer->state_id;
     $offer->currency_id = $validated['currency'];
-    $offer->category_id = $validated['category'];
+    $offer->category_id = $validated['category'] ?? $offer->category_id;
     $offer->user_id = Auth::user()->id;
     $offer->save();
   }

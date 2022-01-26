@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Mail\MessageToUser;
+use App\Models\Currency;
 use App\Models\Category;
 use App\Models\Offer;
-use App\Models\User;
 use App\Models\File;
+use App\Models\State;
+use App\Models\User;
 use Mail;
 
 use Illuminate\Http\Request;
@@ -38,19 +40,25 @@ class OfferController extends Controller
   public function getOffer($offerTag){
     $offer = Offer::findOrFail($this->getIdFromTag($offerTag));
     $offer->tag = $this->getTagFromOffer($offer);
-    
-    //Mail::to('krybe120@gmail.cz')->send(new MessageToUser($offer, "kokot"));
-    
+        
     return view('offer', ["offer" => $offer]);
   }
 
   public function editOffer($offerTag){
     $offer = Offer::findOrFail($this->getIdFromTag($offerTag));
+
+    if($this->isAllowed($offer->user_id)){
+      return view('editlisting', ["offer" => $offer, 'currencies' => Currency::all()]);
+    } else {
+      abort(403);
+    }
+
   }
 
   public function removeOffer($offerTag){
     $offer = Offer::findOrFail($this->getIdFromTag($offerTag));
-    if(Auth::check() && Auth::id() === $offer->user_id || Auth::check() && Auth::user()->admin){
+    
+    if($this->isAllowed($offer->user_id)){
       $images = $offer->images()->get();
       foreach($images as $image){
         Storage::disk('s3')->delete("images/" . $image->name);
@@ -60,14 +68,7 @@ class OfferController extends Controller
     } else {
       abort(403);
     }
-  }
-
-  private function getIdFromTag($tag){
-    return explode("-", $tag)[0];
+    
   }
   
-  private function getTagFromOffer($offer){
-    return $offer->id . "-" . str_replace(" ", "-", $offer->header);
-  }
-
 }

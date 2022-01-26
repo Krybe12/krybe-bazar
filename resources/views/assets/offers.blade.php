@@ -12,6 +12,7 @@
   
   @foreach ($offers as $offer)
     <a href="/offer/{{ $offer->tag }}">
+      {{$offer->id}}
       <div class="card mb-3 ofr rounded-3 border border-2 shadow text-center text-sm-start">
         <div class="row g-0">
           <div class="col-sm-auto">

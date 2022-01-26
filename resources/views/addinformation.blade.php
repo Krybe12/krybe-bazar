@@ -38,7 +38,7 @@
 
           <div class="mb-3 d-flex">
             <input type="checkbox" class="m-2" name="_chbox" required>
-            <label class="form-label text-wrap" style="max-width: 220px">I agree to have these information displayed publicaly on this site.</label>
+            <label class="form-label text-wrap" style="max-width: 220px">I agree to have these information displayed publicly on this site.</label>
           </div>
 
           <div class="mb-3">

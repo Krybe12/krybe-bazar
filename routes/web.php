@@ -24,11 +24,12 @@ Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/offers', [OfferController::class, 'getOffers']);
 Route::get('/offer/{offerTag}', [OfferController::class, 'getOffer']);
-Route::get('/offer/{offerTag}/delete', [OfferController::class, 'removeOffer']);
-Route::get('/offer/{offerTag}/edit', [OfferController::class, 'editOffer']);
+Route::get('/offer/{offerTag}/delete', [OfferController::class, 'removeOffer'])->middleware('auth');
+Route::get('/offer/{offerTag}/edit', [OfferController::class, 'editOffer'])->middleware('auth');
 
 Route::get('/profile/{profileId?}', [ProfileController::class, 'index']);
 
+Route::post('/offer/{offerTag}/edit', [ListingController::class, 'saveEdit'])->middleware('auth');
 Route::get('/addlisting', [ListingController::class, 'add'])->middleware('auth');
 Route::post('/addlisting', [ListingController::class, 'saveData'])->middleware('auth');
 
