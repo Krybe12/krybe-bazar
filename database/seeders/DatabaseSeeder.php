@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
       "Euro" => [
         "code" => "&#128;"
       ],
-      "Dollar" => [
+      "Dollars" => [
         "code" => "&#36;"
       ] //seeding currencies
     ];

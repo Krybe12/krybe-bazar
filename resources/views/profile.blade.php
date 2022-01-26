@@ -18,7 +18,7 @@
 
         <div class="tab-pane fade show active m-4" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab" style="min-height: 100px;">
           
-          <a class="btn btn-primary" href="/addinformation" > Change/Add your information </a>
+          <a class="btn btn-primary mb-4" href="/addinformation" > Change/Add your information </a>
 
           <div class="d-flex row">
             <div class="col">
