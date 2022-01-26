@@ -54,7 +54,7 @@ class ListingController extends Controller
     $offer->state_id = $validated['state'] ?? $offer->state_id;
     $offer->currency_id = $validated['currency'];
     $offer->category_id = $validated['category'] ?? $offer->category_id;
-    $offer->user_id = Auth::user()->id;
+    $offer->user_id = $offer->user_id ?? Auth::user()->id;
     $offer->save();
   }
 
