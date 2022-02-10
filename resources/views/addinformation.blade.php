@@ -17,11 +17,11 @@
           @csrf
           <div class="mb-3">
             <label class="form-label">Name*</label>
-            <input type="text" name="_name" class="form-control" placeholder="John" autocomplete="off" value="{{ Auth::user()->name != "null" ? Auth::user()->name : "" }}" required>
+            <input type="text" name="_name" class="form-control" placeholder="John" minlength="3" maxlength="30" autocomplete="off" value="{{ Auth::user()->name != "null" ? Auth::user()->name : "" }}" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Email*</label>
-            <input type="email" name="_email" class="form-control" placeholder="john@gmail.com" value="{{ Auth::user()->email != "null" ? Auth::user()->email : "" }}" required>
+            <input type="email" name="_email" class="form-control" placeholder="john@gmail.com" minlength="3" maxlength="40" value="{{ Auth::user()->email != "null" ? Auth::user()->email : "" }}" required>
           </div>
 
           <div class="mb-3">
@@ -31,7 +31,7 @@
                 <input type="text" name="_telprefix" class="form-control" placeholder="+420" maxlength="10" style="max-width: 75px;" value="{{ Auth::user()->phone_number != "null" ? explode(" ", Auth::user()->phone_number)[0] : "" }}">
               </div>
               <div class="col ps-1">
-                <input type="tel" name="_tel" class="form-control" placeholder="123456789" style="max-width: 170px;" value="{{ Auth::user()->phone_number != "null" ? implode(" " , array_slice(explode(" ", Auth::user()->phone_number), 1)) : "" }}"> 
+                <input type="tel" name="_tel" class="form-control" placeholder="123456789" maxlength="25" style="max-width: 170px;" value="{{ Auth::user()->phone_number != "null" ? implode(" " , array_slice(explode(" ", Auth::user()->phone_number), 1)) : "" }}"> 
               </div>
             </div>
           </div>

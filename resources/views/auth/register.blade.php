@@ -11,7 +11,7 @@
           @csrf
           <div class="mb-3">
             <label  class="form-label">Username</label>
-            <input type="text" name="user_name" class="form-control" placeholder="John Doe" autocomplete="off" required>
+            <input type="text" name="user_name" class="form-control" placeholder="John Doe" minlength="4" maxlength="30" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label  class="form-label">Password</label>
