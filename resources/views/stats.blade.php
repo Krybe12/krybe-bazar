@@ -9,7 +9,7 @@
       <div class="row">
         @foreach ($dataArr as $data)
 
-          <div class="col d-flex flex-column align-items-center text-center p-4" style="max-width: 250px">
+          <div class="col d-flex flex-column align-items-center text-center p-4" style="max-width: 210px">
             <h2> {{ $data["data"] }} </h2>
             <hr class="border border-dark bg-dark mt-0 w-100">
             <h4> {{ $data["name"] }} </h4>
