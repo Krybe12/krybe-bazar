@@ -55,7 +55,8 @@ class Offers{
   constructor(category = ''){
     this.perPage = 5;
     this.category = category;
-    this.element = document.getElementById("mp")
+    this.element = document.getElementById("mp");
+    this.searchQuery = "";
   }
 
   async setPaginationEventListeners(){
@@ -68,7 +69,7 @@ class Offers{
   }
 
   async getData(page){
-  let url = `/offers?page=${page || 1}${this.category ? "&category=" + this.category : ""}`;
+  let url = `/offers?page=${page || 1}${this.category ? "&category=" + this.category : ""}${this.searchQuery ? "&search=" + this.searchQuery : ""}`;
   this.setPageUrl(url);
   await fetch(url)
     .then(response => response.text())
@@ -94,6 +95,11 @@ class Offers{
       })
   }
 
+  setSearchQuery(query){
+    this.searchQuery = query;
+    this.getData();
+  }
+
   setCategory(categoryId){
     this.category = categoryId;
     this.getData();
@@ -110,5 +116,18 @@ document.querySelector(`[data-id='${category}']`)?.classList.add('activeb');
 let page = new Offers(category);
 page.getData(urlParams.get('page'));
 page.setCategoryEventListeners();
+
+let searchInput = document.getElementById('searchInput');
+let searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', (e) => {
+  page.setSearchQuery(searchInput.value);
+})
+/* searchInput.addEventListener('keyup', (e) => {
+  page.setSearchQuery(searchInput.value);
+}) */
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === "Enter") searchBtn.click();
+});
 </script>
 @endsection

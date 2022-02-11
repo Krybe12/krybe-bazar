@@ -60,10 +60,11 @@
       @endguest
     </div>
 
-    <form class="d-flex sb" style="">
-      <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    <div class="d-flex sb" style="">
+      <input class="form-control me-1" type="search" placeholder="Search" id="searchInput" aria-label="Search">
+      <button class="btn btn-outline-success" id="searchBtn">Search</button>
+    </div>
+
   </div>
 </nav>
 <div class="container-fluid flex-grow-1 bg-light">
