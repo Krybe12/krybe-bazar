@@ -2,9 +2,9 @@
 @section('title') Home @endsection
 
 @section('content')
-<div class="d-flex flex-column flex-md-row pt-4 px-0 px-md-2 px-lg-4">
+<div class="d-flex flex-column flex-md-row align-items-start pt-4 px-0 px-md-2 px-lg-4">
 
-  <div class="col-auto bg-white rounded-3 shadow" style="max-height: 400px;">
+  <div class="col-auto bg-white rounded-3 shadow">
     <div class="d-flex justify-content-md-start justify-content-center ps-1 ps-md-3 pt-2 pb-0 align-items-center">
       <h2>Categories</h2>
     </div>

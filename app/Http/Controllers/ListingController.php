@@ -55,7 +55,10 @@ class ListingController extends Controller
     $offer->currency_id = $validated['currency'];
     $offer->category_id = $validated['category'] ?? $offer->category_id;
     $offer->user_id = $offer->user_id ?? Auth::user()->id;
-    $offer->save();
+    try {
+      $offer->save();
+    } catch (\Throwable $th) {
+    }
   }
 
   public function saveData(Request $request){

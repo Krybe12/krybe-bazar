@@ -39,4 +39,4 @@ Route::post('/addlisting', [ListingController::class, 'saveData'])->middleware('
 Route::get('/addinformation', [InformationController::class, 'index'])->middleware('auth');
 Route::post('/addinformation', [InformationController::class, 'saveInformation'])->middleware('auth');
 
-
+Route::post('/search/{query?}', [SearchController::class, 'index']);
