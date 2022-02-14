@@ -43,7 +43,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  
     </div>
     @endif
-    <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 pt-2" style="max-width: 900px;">
+    <div id="mp" class="flex-column ps-0 ps-md-3 ps-lg-5 pt-2" style="max-width: 950px;">
       
     </div>
 
