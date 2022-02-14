@@ -61,7 +61,7 @@
     </div>
 
     <div class="d-flex sb" style="">
-      <input class="form-control me-1" type="search" placeholder="Search" id="searchInput" aria-label="Search">
+      <input class="form-control me-1" type="search" placeholder="Search" id="searchInput" maxlength="20" aria-label="Search">
       <button class="btn btn-outline-success" id="searchBtn">Search</button>
     </div>
 

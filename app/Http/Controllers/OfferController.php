@@ -22,7 +22,9 @@ class OfferController extends Controller
   {
     $userId = $request->user;
     $catId = $request->category;
+    if ($catId && !Category::find($catId)) return;
     $searchQuery = "%" . $request->search . "%" ?? "%";
+    if (strlen($searchQuery) > 25) return;
 
     $offers = !$catId ? ($userId ? Offer::where('user_id', $userId)->where('header', 'like', $searchQuery)->paginate(5) : Offer::where('header', 'like', $searchQuery)->paginate(5)) : Offer::where('category_id', $catId)->where('header', 'like', $searchQuery)->paginate(5);
     $categoryName = !$catId ? ($userId ? "Offers of " . User::find($userId)->user_name : "Home") : Category::find($catId)->name;
