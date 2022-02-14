@@ -65,10 +65,21 @@
       <button class="btn btn-outline-success" id="searchBtn">Search</button>
     </div>
 
+    @if ( !request()->is('home') && !request()->is('/') )
+      <script>
+        document.getElementById('searchBtn').addEventListener('click', (e) => {
+          let inputVal = document.getElementById('searchInput').value;
+          if (inputVal.length === 0) return; 
+          window.location.href = `/?search=${inputVal}`
+        })
+      </script>
+    @endif
+
   </div>
 </nav>
 <div class="container-fluid flex-grow-1 bg-light">
   @yield('content')
 </div>
+
 </body>
 </html>

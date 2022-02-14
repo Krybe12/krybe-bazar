@@ -27,6 +27,7 @@ class OfferController extends Controller
     $offers = !$catId ? ($userId ? Offer::where('user_id', $userId)->where('header', 'like', $searchQuery)->paginate(5) : Offer::where('header', 'like', $searchQuery)->paginate(5)) : Offer::where('category_id', $catId)->where('header', 'like', $searchQuery)->paginate(5);
     $categoryName = !$catId ? ($userId ? "Offers of " . User::find($userId)->user_name : "Home") : Category::find($catId)->name;
 
+    
     if (count($offers) === 0){
       return $userId ? "<h3 class='ps-1 pt-1'>". User::find($userId)->user_name ." has no active offers</h3>" : "<h3 class='ps-1 pt-1'>There are no offers in $categoryName</h3>";
     }

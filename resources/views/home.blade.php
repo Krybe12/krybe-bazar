@@ -96,6 +96,7 @@ class Offers{
   }
 
   setSearchQuery(query){
+    searchInput.value = query;
     this.searchQuery = query;
     this.getData();
   }
@@ -110,24 +111,32 @@ class Offers{
   }
 
 }
-let urlParams = new URLSearchParams(window.location.search)
-let category = urlParams.get('category');
-document.querySelector(`[data-id='${category}']`)?.classList.add('activeb');
-let page = new Offers(category);
-page.getData(urlParams.get('page'));
-page.setCategoryEventListeners();
 
 let searchInput = document.getElementById('searchInput');
 let searchBtn = document.getElementById('searchBtn');
+
+let urlParams = new URLSearchParams(window.location.search)
+let category = urlParams.get('category');
+
+document.querySelector(`[data-id='${category}']`)?.classList.add('activeb');
+let page = new Offers(category);
+page.setSearchQuery(urlParams.get('search'));
+page.getData(urlParams.get('page'));
+page.setCategoryEventListeners();
+
 searchBtn.addEventListener('click', (e) => {
   page.setSearchQuery(searchInput.value);
 })
-/* searchInput.addEventListener('keyup', (e) => {
-  page.setSearchQuery(searchInput.value);
-}) */
+
+searchInput.addEventListener('click', (e) => {
+  setTimeout(() => {
+    page.setSearchQuery(searchInput.value);
+  }, 1);
+})
 
 document.addEventListener('keydown', (e) => {
   if (e.code === "Enter") searchBtn.click();
 });
+
 </script>
 @endsection
