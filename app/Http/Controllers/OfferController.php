@@ -29,7 +29,7 @@ class OfferController extends Controller
 
     
     if (count($offers) === 0){
-      return $userId ? "<h3 class='ps-1 pt-1'>". User::find($userId)->user_name ." has no active offers</h3>" : "<h3 class='ps-1 pt-1'>There are no offers in $categoryName</h3>";
+      return $userId ? "<h3 class='ps-1 pt-1'>". User::find($userId)->user_name ." has no active offers</h3>" : "<h3 class='ps-1 pt-1'>No results " . $this->getInfoString($categoryName, $request->search) . "</h3>";
     }
 
     foreach ($offers as $offer) {
@@ -71,6 +71,11 @@ class OfferController extends Controller
       abort(403);
     }
     
+  }
+
+  private function getInfoString($cat, $search){
+    if (!$cat && !$search) return "";
+    return "(" . ($cat ? "Category: $cat" : "") . ($search ? "; Search: $search" : "") . ")";
   }
   
 }
