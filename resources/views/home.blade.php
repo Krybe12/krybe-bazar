@@ -37,7 +37,7 @@
   </div>
 
   <div class="col">
-    
+
     @if(session('status'))
     <div class="alert alert-success alert-dismissible fade show ofr ms-0 ms-md-3 mt-2 mt-md-0 ms-lg-5" role="alert">
       {{ session('status') }}
@@ -123,7 +123,7 @@ let category = urlParams.get('category');
 document.querySelector(`[data-id='${category}']`)?.classList.add('activeb');
 let page = new Offers(category);
 page.setSearchQuery(urlParams.get('search'));
-page.getData(urlParams.get('page'));
+
 page.setCategoryEventListeners();
 
 searchBtn.addEventListener('click', (e) => {

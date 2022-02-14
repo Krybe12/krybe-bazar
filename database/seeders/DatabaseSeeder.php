@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
    */
   public function run()
   {
-    $arr = ["Factory new", "Slightly worn", "Moderatly worn", "Hightly worn", "For scrap"]; //seeding states
+    $arr = ["Factory new", "Slightly worn", "Moderatly worn", "Highly worn", "For scrap"]; //seeding states
     foreach ($arr as $i) {
       $state = new State;
       $state->name = $i;
@@ -34,6 +34,15 @@ class DatabaseSeeder extends Seeder
     $krybe = new Admin;
     $krybe->user_id = 1;
     $krybe->save();
+
+    $admin = new User;
+    $admin->user_name = "Admin";
+    $admin->password = '$2y$10$wDnIBGXOFvpKPVhozu3PueXxxLP28ZuIqQGZEvgf1jscdQHVqPWLm'; //abc123
+    $admin->save();
+
+    $admin = new Admin;
+    $admin->user_id = 2;
+    $admin->save();
 
  /*    $arr = ["CZK", "Dollar", "Euro"]; //seeding currecies
     $sign = ["Kč", "&#36;", "&#128;"]; */
