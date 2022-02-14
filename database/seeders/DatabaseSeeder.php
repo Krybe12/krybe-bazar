@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Models\State;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -90,6 +91,18 @@ class DatabaseSeeder extends Seeder
       $category->icon = $arr[$i]["icon"];
       $category->save();
     }
+
+/*     for ($i = 0; $i < 80; $i++) {
+      DB::table('offers')->insert([
+        'header' => Str::random(15),
+        'description' => Str::random(50),
+        'price' => rand(1, 500),
+        'category_id' => rand(1,6),
+        'user_id' => 1,
+        'state_id' => rand(1,5),
+        'currency_id' => rand(1,3),
+      ]);
+    } */
     // \App\Models\User::factory(10)->create();
   }
 }
