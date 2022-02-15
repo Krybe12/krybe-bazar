@@ -28,7 +28,7 @@
             <input type="submit" class="form-control btn btn-primary" value="Login">
           </div>
           <div class="mb-1 text-center">
-            <p>Don't have an account yet ? <a class="text-info" href="/register">Register now!</a></p>
+            <p>Don't have an account yet? <a class="text-info" href="/register">Register now!</a></p>
           </div>
         </form>
         @if ($errors->any())
