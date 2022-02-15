@@ -6,7 +6,7 @@
       <div>
         <h1 class="pb-md-5 pb-2"><b>Stats</b></h1>
       </div>
-      <div class="row">
+      <div class="row justify-content-center">
         @foreach ($dataArr as $data)
 
           <div class="col d-flex flex-column align-items-center text-center p-4" style="max-width: 210px">
