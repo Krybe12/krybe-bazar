@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
       "Phones" => [
         "icon" => "phone"
       ],
-      "Cars & Moto" => [
+      "Cars and Moto" => [
         "icon" => "truck"
       ],
       "Household Supplies" => [

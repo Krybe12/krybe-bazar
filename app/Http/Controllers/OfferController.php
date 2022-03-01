@@ -21,11 +21,9 @@ class OfferController extends Controller
   public function getOffers(Request $request)
   {
     $userId = $request->user;
-    $catId = $request->category;
-    if ($catId && !Category::find($catId)) return;
+    $catId = Category::where('name', '=', $request->category)->first()->id ?? null;
     $searchQuery = "%" . $request->search . "%" ?? "%";
     if (strlen($searchQuery) > 25) return;
-
     $offers = !$catId ? ($userId ? Offer::where('user_id', $userId)->where('header', 'like', $searchQuery)->paginate(5) : Offer::where('header', 'like', $searchQuery)->paginate(5)) : Offer::where('category_id', $catId)->where('header', 'like', $searchQuery)->paginate(5);
     $categoryName = !$catId ? ($userId ? "Offers of " . User::find($userId)->user_name : "Home") : Category::find($catId)->name;
 

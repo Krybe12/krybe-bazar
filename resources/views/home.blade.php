@@ -13,9 +13,9 @@
       
       @foreach ($categories as $category)
         <div class="d-flex ms-md-0 p-0 m-1 rounded-3 flex-column flex-md-row ct">
-          <button type="button" data-id="{{ $category->id }}" class="btn d-flex w-100 align-items-center catbtn">
+          <button type="button" data-id="{{ $category->id }}" data-name="{{ $category->name }}" class="btn d-flex w-100 align-items-center catbtn">
             <i class="bi bi-{{ $category->icon }}"></i>
-            <p class="ps-1 my-1"> {{ $category->name }}</p>
+            <p class="ps-1 my-1">{{ $category->name }}</p>
           </button>
         </div>
       @endforeach
@@ -85,7 +85,7 @@ class Offers{
         element.addEventListener('click', (e) => {
           let selectedBtn = document.querySelector('.activeb')
           let targetBtn = e.currentTarget;
-          let targetId = targetBtn.dataset.id;
+          let targetId = targetBtn.children[1].innerText;
           selectedBtn?.classList.remove("activeb");
           if (selectedBtn == targetBtn){
             targetId = "";
@@ -120,7 +120,7 @@ let searchBtn = document.getElementById('searchBtn');
 let urlParams = new URLSearchParams(window.location.search)
 let category = urlParams.get('category');
 
-document.querySelector(`[data-id='${category}']`)?.classList.add('activeb');
+document.querySelector(`[data-name='${category}']`)?.classList.add('activeb');
 let page = new Offers(category);
 page.setSearchQuery(urlParams.get('search'));
 
