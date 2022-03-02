@@ -15,9 +15,6 @@
       <div class="border shadow bg-white rounded-3">
         <form action="" method="POST" class="p-4 pb-2">
           @csrf
-          <button class="d-flex btn-sm btn-dark justify-content-center mb-2 w-100" onclick="javascript:history.back()">
-            <i class="bi bi-arrow-left">Back</i>
-          </button>
           <div class="mb-3">
             <label class="form-label">Name*</label>
             <input type="text" name="_name" class="form-control" placeholder="John" minlength="3" maxlength="30" autocomplete="off" value="{{ Auth::user()->name != "null" ? Auth::user()->name : "" }}" required>
