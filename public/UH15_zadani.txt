@@ -1,0 +1,31 @@
+Praktický příklad A: 
+a.	Stáhněte si soubor UH15_zadání_A.pptx  z adresáře na webu skolaonline.cz.
+ 
+b.	Pro vytvoření nové prezentace můžeme použít připravenou prezentaci. 
+
+c.	Vysvětlete základy práce vytvoření prezentace se všemi formálními náležitostmi a použijte 
+	k ukázce libovolné efekty. 
+
+d.	Výsledný soubor prezentujte. Soubor uložte ve formátu .pptx, odp.
+
+e.	Doplňte své jméno a příjmení (4+2) UH15_A.* a uložte do adresáře webu.
+
+Bodová klasifikace odpovědí: 
+
+a, e        za správnou   2,5 bodů 
+b, c, d    za správnou  15 bodů
+==================================================================
+Praktický příklad B: 
+a.	Stáhněte si soubor UH15_zadání_B.xlsx z adresáře webu skolaonline.cz.
+b.	Na listu Varianta 2 pomocí nástroje citlivostní analýzy Hledání řešení zjistěte kolik let by musela společnost splácet půjčku, kdyby výše měsíční splátky byla pouze 6000,- Kč.
+c.	Na listu Varianta 3 pomocí nástroje citlivostní analýzy Hledání řešení zjistěte jakou částku by si mohla společnost půjčit, kdyby byla schopna splácet jen 6000,- Kč měsíčně po dobu 3 let (delší dobu splácení si společnost nemůže dovolit, uvažuje tedy o snížení půjčené částky). 
+d.	Sešit uložte v jednom z následujících formátů: .xlsx, .odt
+Soubor uložte (4+2) UH15_B.* a uložte do adresáře webu.
+ .
+
+Bodová klasifikace odpovědí: 
+
+a, d        za správnou   2,5 bodů 
+b, c,       za správnou 22,5 bodů
+============================
+Celkově za správné A i B je 100 bodů.

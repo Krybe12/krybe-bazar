@@ -48,6 +48,11 @@ class DatabaseSeeder extends Seeder
  /*    $arr = ["CZK", "Dollar", "Euro"]; //seeding currecies
     $sign = ["Kč", "&#36;", "&#128;"]; */
     $arr = [ 
+      "Euro" => [
+        "code" => "&#128;"
+      ]
+    ];
+/*     $arr = [ 
       "CZK" => [
         "code" => "Kč"
       ],
@@ -57,7 +62,7 @@ class DatabaseSeeder extends Seeder
       "Dollars" => [
         "code" => "&#36;"
       ] //seeding currencies
-    ];
+    ]; */
     foreach (array_keys($arr) as $i) {
       $currency = new Currency;
       $currency->name = $i;

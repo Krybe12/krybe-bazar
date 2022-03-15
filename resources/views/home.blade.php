@@ -9,7 +9,7 @@
       <h2>Categories</h2>
     </div>
 
-    <div class="d-flex flex-row flex-md-column mb-2 p-0 p-md-3 flex-wrap text-center text-md-start justify-content-center">
+    <div class="d-flex flex-row flex-md-column mb-1 p-0 p-md-3 pb-md-0 pt-md-1 flex-wrap text-center text-md-start justify-content-center">
       
       @foreach ($categories as $category)
         <div class="d-flex ms-md-0 p-0 m-1 rounded-3 flex-column flex-md-row ct">
@@ -19,19 +19,26 @@
           </button>
         </div>
       @endforeach
-     {{--  <div class="w-100"></div>
-      <h3>Price range</h3>
-      <div class="w-100"></div>
-      <div class="row flex-md-column pb-2">
-        <div class="col d-flex justify-content-center align-items-center p-1">
-          <label for="minprice">min: </label>
-          <input type="number" class="form-control" name="minprice" id="" style="max-width: 120px;">
-        </div>
-        <div class="col d-flex justify-content-center align-items-center p-1">
-          <label for="maxprice">max: </label>
-          <input type="number" class="form-control" name="maxprice" id="" style="max-width: 120px;">
-        </div>
-      </div> --}}
+
+    </div>
+
+    <div class="d-flex flex-column ps-3 pe-5 pt-0">
+      <h2>Price sorting</h2>
+      <select id="priceSort" class="form-select m-3 mt-2">
+        <option value="default">default</option>
+        <option value="asc">ascending</option>
+        <option value="desc">descending</option>
+      </select>
+    </div>
+
+    <div class="d-flex flex-column ps-3 pe-5 pt-0">
+      <h2>Wear select</h2>
+      <select id="wearSelect" class="form-select m-3 mt-2">
+        <option value="default">default</option>
+        @foreach ($states as $state)
+          <option value="{{$state->id}}">{{$state->name}}</option>
+        @endforeach
+      </select>
     </div>
 
   </div>
@@ -59,6 +66,8 @@ class Offers{
     this.category = category;
     this.element = document.getElementById("mp");
     this.searchQuery = "";
+    this.wearId = "";
+    this.price = "";
   }
 
   async setPaginationEventListeners(){
@@ -71,7 +80,7 @@ class Offers{
   }
 
   async getData(page){
-  let url = `/offers?page=${page || 1}${this.category ? "&category=" + this.category : ""}${this.searchQuery ? "&search=" + this.searchQuery : ""}`;
+  let url = `/offers?page=${page || 1}${this.category ? "&category=" + this.category : ""}${this.searchQuery ? "&search=" + this.searchQuery : ""}${this.priceSort ? "&price=" + this.priceSort : ""}${this.wearId ? "&wear=" + this.wearId : ""}`;
   this.setPageUrl(url);
   await fetch(url)
     .then(response => response.text())
@@ -79,7 +88,7 @@ class Offers{
     await this.setPaginationEventListeners();
   }
 
-  setCategoryEventListeners(){
+  setEventListeners(){
     document.querySelectorAll('.catbtn')
       .forEach(element => {
         element.addEventListener('click', (e) => {
@@ -94,7 +103,27 @@ class Offers{
           }
           page.setCategory(targetId);
         })
-      })
+      });
+
+    priceSelect.addEventListener('change', (e) => {
+      this.setPriceSorting(priceSelect.value);
+    })
+    
+    wearSelect.addEventListener('change', (e) => {
+      this.setWear(wearSelect.value);
+    })
+  }
+
+  setPriceSorting(sort){
+    this.priceSort = sort;
+    if (sort === 'default') this.priceSort = "";
+    this.getData();
+  }
+
+  setWear(wearId){
+    this.wearId = wearId;
+    if (wearId === 'default') this.wearId = "";
+    this.getData();
   }
 
   setSearchQuery(query){
@@ -113,19 +142,32 @@ class Offers{
   }
 
 }
-
+let priceSelect = document.getElementById('priceSort');
+let wearSelect = document.getElementById('wearSelect');
 let searchInput = document.getElementById('searchInput');
 let searchBtn = document.getElementById('searchBtn');
 
 let urlParams = new URLSearchParams(window.location.search)
 let category = urlParams.get('category');
+let price = urlParams.get('price');
+let wearId = urlParams.get('wear');
+
+if (price){
+  priceSelect.value = price;
+}
+
+if (wearId){
+  wearSelect.value = wearId;
+}
 
 document.querySelector(`[data-name='${category}']`)?.classList.add('activeb');
 let page = new Offers(category);
+page.wearId = wearId;
+page.priceSort = price;
+
 page.setSearchQuery(urlParams.get('search'));
 
-page.setCategoryEventListeners();
-
+page.setEventListeners();
 searchBtn.addEventListener('click', (e) => {
   page.setSearchQuery(searchInput.value);
 })

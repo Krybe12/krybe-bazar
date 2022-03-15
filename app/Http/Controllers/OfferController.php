@@ -20,11 +20,16 @@ class OfferController extends Controller
 
   public function getOffers(Request $request)
   {
+    $sort = $request->price ?? 'asc';
+    $sortColumn = $request->price === 'asc' || $request->price === 'desc' ? 'price' : 'id';
+
+    $stateId = State::find($request->wear) ? $request->wear : '%';
+
     $userId = $request->user;
     $catId = Category::where('name', '=', $request->category)->first()->id ?? null;
     $searchQuery = "%" . $request->search . "%" ?? "%";
     if (strlen($searchQuery) > 25) return;
-    $offers = !$catId ? ($userId ? Offer::where('user_id', $userId)->where('header', 'like', $searchQuery)->paginate(5) : Offer::where('header', 'like', $searchQuery)->paginate(5)) : Offer::where('category_id', $catId)->where('header', 'like', $searchQuery)->paginate(5);
+    $offers = !$catId ? ($userId ? Offer::where('user_id', $userId)->paginate(5) : Offer::where('header', 'like', $searchQuery)->where('state_id', 'like', $stateId)->orderBy($sortColumn, $sort)->paginate(5)) : Offer::where('category_id', $catId)->where('header', 'like', $searchQuery)->where('state_id', 'like', $stateId)->orderBy($sortColumn, $sort)->paginate(5);
     $categoryName = !$catId ? ($userId ? "Offers of " . User::find($userId)->user_name : "Home") : Category::find($catId)->name;
 
     
