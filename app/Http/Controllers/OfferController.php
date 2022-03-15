@@ -23,7 +23,7 @@ class OfferController extends Controller
     $sort = $request->price ?? 'asc';
     $sortColumn = $request->price === 'asc' || $request->price === 'desc' ? 'price' : 'id';
 
-    $stateId = State::find($request->wear) ? $request->wear : '%';
+    $stateId = ($st = State::find($request->wear)?->name) ? $request->wear : '%';
 
     $userId = $request->user;
     $catId = Category::where('name', '=', $request->category)->first()->id ?? null;
@@ -32,9 +32,8 @@ class OfferController extends Controller
     $offers = !$catId ? ($userId ? Offer::where('user_id', $userId)->paginate(5) : Offer::where('header', 'like', $searchQuery)->where('state_id', 'like', $stateId)->orderBy($sortColumn, $sort)->paginate(5)) : Offer::where('category_id', $catId)->where('header', 'like', $searchQuery)->where('state_id', 'like', $stateId)->orderBy($sortColumn, $sort)->paginate(5);
     $categoryName = !$catId ? ($userId ? "Offers of " . User::find($userId)->user_name : "Home") : Category::find($catId)->name;
 
-    
     if (count($offers) === 0){
-      return $userId ? "<h3 class='ps-1 pt-1'>". User::find($userId)->user_name ." has no active offers</h3>" : "<h3 class='ps-1 pt-1'>No results " . $this->getInfoString($categoryName, $request->search) . "</h3>";
+      return $userId ? "<h3 class='ps-1 pt-1'>". User::find($userId)->user_name ." has no active offers</h3>" : "<h3 class='ps-1 pt-1'>No results " . $this->getInfoString($categoryName, $request->search, $st) . "</h3>";
     }
 
     foreach ($offers as $offer) {
@@ -78,9 +77,9 @@ class OfferController extends Controller
     
   }
 
-  private function getInfoString($cat, $search){
+  private function getInfoString($cat, $search, $st){
     if (!$cat && !$search) return "";
-    return "(" . ($cat ? "Category: $cat" : "") . ($search ? "; Search: $search" : "") . ")";
+    return "(" . ($cat ? "Category: $cat" : "") . ($search ? "; Search: $search" : "") . ($st ? "; Wear: $st" : "") . ")";
   }
   
 }
