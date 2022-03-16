@@ -31,7 +31,7 @@
                 <input type="text" name="_telprefix" class="form-control" placeholder="+420" maxlength="10" style="max-width: 75px;" value="{{ Auth::user()->phone_number != "null" ? explode(" ", Auth::user()->phone_number)[0] : "" }}">
               </div>
               <div class="col ps-1">
-                <input type="tel" name="_tel" class="form-control" placeholder="123456789" maxlength="25" style="max-width: 170px;" value="{{ Auth::user()->phone_number != "null" ? implode(" " , array_slice(explode(" ", Auth::user()->phone_number), 1)) : "" }}"> 
+                <input type="tel" name="_tel" class="form-control" placeholder="123456789" maxlength="20" style="max-width: 170px;" value="{{ Auth::user()->phone_number != "null" ? implode(" " , array_slice(explode(" ", Auth::user()->phone_number), 1)) : "" }}"> 
               </div>
             </div>
           </div>
