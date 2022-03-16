@@ -20,7 +20,7 @@ class OfferController extends Controller
 
   public function getOffers(Request $request)
   {
-    $sort = $request->price ?? 'asc';
+    $sort = $request->price !== 'asc' && $request->price !== 'desc' ? 'asc' : $request->price;
     $sortColumn = $request->price === 'asc' || $request->price === 'desc' ? 'price' : 'id';
 
     $stateId = ($st = State::find($request->wear)?->name) ? $request->wear : '%';
