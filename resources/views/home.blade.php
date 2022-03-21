@@ -34,7 +34,7 @@
     <div class="d-flex flex-column ps-3 pe-5 pt-0">
       <h2>Wear select</h2>
       <select id="wearSelect" class="form-select m-3 mt-2">
-        <option value="default">default</option>
+        <option value="default">all</option>
         @foreach ($states as $state)
           <option value="{{$state->id}}">{{$state->name}}</option>
         @endforeach
