@@ -23,7 +23,7 @@
             <label  class="form-label"><i class="bi bi-cash-stack"></i> Price</label>
             <div class="row">
               <div class="col pe-0">
-                <input type="number" class="form-control" name="price" min="1" max="9999999"> 
+                <input type="number" class="form-control" name="price" min="1" max="9999999" required> 
               </div>
               <div class="col-auto ps-1">
                 <select name="currency" class="form-select" id="">
