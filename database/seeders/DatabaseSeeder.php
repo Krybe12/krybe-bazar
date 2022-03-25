@@ -107,8 +107,7 @@ class DatabaseSeeder extends Seeder
       $category->save();
     }
 
-    $numOfOffers = 10;
-    \App\Models\Offer::factory($numOfOffers)->create();
+    //\App\Models\Offer::factory(10)->create();
 /*     for ($i=1 ; $i < $numOfOffers; $i++) { 
       $img = new File;
       $img->offer_id = $i;
