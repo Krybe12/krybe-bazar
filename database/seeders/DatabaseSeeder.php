@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Models\State;
 use App\Models\User;
+use App\Models\File;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -44,6 +45,15 @@ class DatabaseSeeder extends Seeder
     $admin = new Admin;
     $admin->user_id = 2;
     $admin->save();
+
+    $franta = new User;
+    $franta->user_name = "Franta";
+    $franta->has_information = 1;
+    $franta->password = '$2y$10$wDnIBGXOFvpKPVhozu3PueXxxLP28ZuIqQGZEvgf1jscdQHVqPWLm'; //abc123
+    $franta->name = "Franta Bezny Uzivatel";
+    $franta->email = "franta.bezny@uzivatel.cz";
+    $franta->phone_number = "+420 123 456 789";
+    $franta->save();
 
  /*    $arr = ["CZK", "Dollar", "Euro"]; //seeding currecies
     $sign = ["Kč", "&#36;", "&#128;"]; */
@@ -97,17 +107,15 @@ class DatabaseSeeder extends Seeder
       $category->save();
     }
 
-/*     for ($i = 0; $i < 80; $i++) {
-      DB::table('offers')->insert([
-        'header' => Str::random(15),
-        'description' => Str::random(50),
-        'price' => rand(1, 500),
-        'category_id' => rand(1,6),
-        'user_id' => 1,
-        'state_id' => rand(1,5),
-        'currency_id' => rand(1,3),
-      ]);
+    $numOfOffers = 10;
+    \App\Models\Offer::factory($numOfOffers)->create();
+/*     for ($i=1 ; $i < $numOfOffers; $i++) { 
+      $img = new File;
+      $img->offer_id = $i;
+      $img->name = "No image";
+      $img->alt = "No image";
+
+      $img->save();
     } */
-    // \App\Models\User::factory(10)->create();
   }
 }
