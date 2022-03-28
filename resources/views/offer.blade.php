@@ -120,7 +120,7 @@
   <script>
     let mainImg = document.getElementById('selectedImg');
     let imgs = document.querySelectorAll('.offerimg');
-    document.querySelector('.offerimg').classList.add('selectedimg')
+    document.querySelector('.offerimg')?.classList.add('selectedimg');
     imgs.forEach(img => {
       img.addEventListener('mouseover', e => {
         document.querySelector('.selectedimg')?.classList.remove('selectedimg');
