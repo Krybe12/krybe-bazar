@@ -15,7 +15,7 @@
       <div class="card mb-3 ofr rounded-3 border border-2 shadow text-center text-sm-start">
         <div class="row g-0">
           <div class="col-sm-auto">
-            <img src="{{ $offer->images[0]->url }}" alt="{{ $offer->images[0]->alt }}" class="img-fluid rounded-start oimg">
+            <img src="{{ $offer->images[0]?->url ?? 'https://dummyimage.com/500x500/ffffff/000.png&text=No-image' }}" alt="{{ $offer->images[0]?->alt ?? 'no image'}}" class="img-fluid rounded-start oimg">
           </div>
           <div class="col">
             <div class="card-body h-100 d-flex flex-column justify-content-between ps-md-5">

@@ -20,7 +20,7 @@
         @endforeach
       </div>
       <div class="col d-flex justify-content-center justify-content-md-start mx-3">
-        <img id="selectedImg" src="{{$offer->images[0]->url}}" alt="{{$offer->images[0]->alt}}" style="object-fit: contain; width: 40vw; height: 58vh; min-width: 330px; min-height: 280px">
+        <img id="selectedImg" src="{{$offer->images[0]?->url ?? 'https://dummyimage.com/500x500/ffffff/000.png&text=No-image'}}" alt="{{$offer->images[0]?->alt ?? 'no image'}}" style="object-fit: contain; width: 40vw; height: 58vh; min-width: 330px; min-height: 280px">
       </div>
 
       <div class="col d-flex flex-column m-3">
