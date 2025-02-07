@@ -1,6 +1,7 @@
 # Projekt Bazar
 
-Maturitní práce na téma bazaru vytvořená ve frameworku Laravel. 
-Veškerá dokumentace je dostupná v tomto PDF:  [Maturitní práce - Bazar](MP-Bazar.pdf)
+Maturitní práce na téma bazaru vytvořená ve frameworku Laravel.  
+Veškerá dokumentace je dostupná zde:  
 
-popřípadě v této prezentaci o MP: [Maturitní práce - Prezentace](MP-Bazar-prezentace.pdf)
+- [Maturitní práce - Bazar](MP-Bazar.pdf)  
+- [Maturitní práce - Prezentace](MP-Bazar-prezentace.pdf)  
